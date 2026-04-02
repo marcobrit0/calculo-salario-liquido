@@ -110,6 +110,25 @@ const jsonLd = {
   ],
 };
 
+function LogoMark() {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="relative flex size-11 items-center justify-center overflow-hidden rounded-full border border-white/16 bg-white/8 backdrop-blur-sm">
+        <div className="absolute inset-[7px] rounded-full border border-white/12" />
+        <span className="relative font-display text-xl tracking-[-0.08em] text-white">S</span>
+      </div>
+      <div className="flex flex-col">
+        <span className="font-display text-xl leading-none tracking-[-0.04em] text-white">
+          Salário Líquido
+        </span>
+        <span className="text-[0.65rem] uppercase tracking-[0.34em] text-zinc-500">
+          CLT 2026
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main className="bg-background text-foreground">
@@ -120,23 +139,49 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-neutral-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.08),transparent_40%),linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,auto,56px_56px,56px_56px] opacity-40" />
-        <div className="relative mx-auto grid min-h-screen max-w-7xl gap-12 px-6 pb-12 pt-6 md:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:px-16">
-          <div className="flex min-h-[calc(100svh-3rem)] flex-col justify-between py-8">
-            <div className="flex flex-col gap-10 animate-rise">
+        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-6 md:px-10 lg:px-16">
+          <div className="pointer-events-none sticky top-6 z-20">
+            <div className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/12 bg-black/30 px-4 py-3 backdrop-blur-xl md:px-6">
+              <LogoMark />
+              <div className="hidden items-center gap-2 md:flex">
+                <a
+                  href="#calculadora"
+                  className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
+                >
+                  Calculadora
+                </a>
+                <a
+                  href="#metodologia"
+                  className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
+                >
+                  Metodologia
+                </a>
+                <a
+                  href="#faq"
+                  className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
+                >
+                  FAQ
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex min-h-[calc(100svh-2rem)] flex-col justify-center pb-12 pt-20">
+            <div className="flex max-w-5xl flex-col gap-10 animate-rise">
               <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
                 <span>{siteConfig.name}</span>
                 <span className="text-zinc-600">/</span>
                 <span>CLT 2026</span>
               </div>
 
-              <div className="max-w-3xl">
-                <p className="max-w-xl text-sm uppercase tracking-[0.24em] text-zinc-400">
+              <div className="max-w-5xl">
+                <p className="max-w-2xl text-sm uppercase tracking-[0.24em] text-zinc-400">
                   cálculo salário líquido, líquido para bruto e simulação de descontos reais
                 </p>
-                <h1 className="mt-4 max-w-4xl font-display text-[clamp(3.5rem,10vw,7.25rem)] leading-[0.9] tracking-[-0.05em] text-white">
+                <h1 className="mt-5 max-w-5xl font-display text-[clamp(4.5rem,11vw,9rem)] leading-[0.88] tracking-[-0.06em] text-white">
                   Calculadora de salário líquido
                 </h1>
-                <p className="mt-6 max-w-xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
+                <p className="mt-8 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
                   Simule seu salário CLT com INSS 2026, IRRF 2026 e a redução da Lei
                   15.270/2025. A conta compara automaticamente o desconto simplificado com
                   as deduções legais antes de mostrar o líquido final.
@@ -146,30 +191,36 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="#calculadora"
-                  className="inline-flex h-10 items-center justify-center rounded-full bg-white px-5 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5"
+                  className="inline-flex h-11 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5"
                 >
                   Calcular agora
                 </a>
                 <a
                   href="#metodologia"
-                  className="inline-flex h-10 items-center justify-center rounded-full border border-white/20 px-5 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/8"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/8"
                 >
                   Entender a metodologia
                 </a>
               </div>
-            </div>
 
-            <div className="grid gap-8 border-t border-white/12 pt-6 text-sm leading-6 text-zinc-300 md:grid-cols-3">
-              {highlights.map((item) => (
-                <div key={item.title} className="flex flex-col gap-2 animate-rise">
-                  <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">{item.title}</p>
-                  <p>{item.body}</p>
-                </div>
-              ))}
+              <div className="grid gap-8 border-t border-white/12 pt-8 text-sm leading-6 text-zinc-300 md:grid-cols-3">
+                {highlights.map((item) => (
+                  <div key={item.title} className="flex flex-col gap-2 animate-rise">
+                    <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
+                      {item.title}
+                    </p>
+                    <p>{item.body}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <SalaryCalculator />
+      <section className="relative z-10 bg-neutral-100 pb-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
+          <SalaryCalculator className="-mt-10 md:-mt-14 lg:-mt-16" />
         </div>
       </section>
 
@@ -258,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-background">
+      <section id="faq" className="border-t border-border bg-background">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:px-16">
           <div className="flex flex-col gap-6">
             <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
