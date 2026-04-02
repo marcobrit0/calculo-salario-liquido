@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Calculator, Landmark, Scale, Wallet } from "lucide-react";
 
+import {
+  DEFAULT_CALCULATOR_STATE,
+  buildCalculatorHref,
+  parseCalculatorSearchParams,
+  type ShareableCalculatorState,
+} from "@/lib/calculator-query";
 import {
   calculateSalaryBreakdown,
   formatCurrency,
@@ -63,20 +69,100 @@ const resultLabels = {
   },
 } as const;
 
-export function SalaryCalculator({ className }: { className?: string }) {
-  const [mode, setMode] = useState<CalculationMode>("gross-to-net");
-  const [salaryInput, setSalaryInput] = useState("5.000,00");
-  const [dependentsInput, setDependentsInput] = useState("0");
-  const [pensionInput, setPensionInput] = useState("");
+function subscribeToLocationChange(onStoreChange: () => void) {
+  window.addEventListener("popstate", onStoreChange);
+
+  return () => {
+    window.removeEventListener("popstate", onStoreChange);
+  };
+}
+
+function getLocationSearchSnapshot() {
+  return window.location.search;
+}
+
+function getServerLocationSearchSnapshot() {
+  return "";
+}
+
+function getInitialStateFromLocation(search: string) {
+  const params = Object.fromEntries(new URLSearchParams(search).entries());
+  return parseCalculatorSearchParams(params);
+}
+
+function formatAmountForInput(value: number) {
+  return value
+    ? value.toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+    : "";
+}
+
+function createInputState(initialState: ShareableCalculatorState) {
+  return {
+    mode: initialState.mode,
+    salaryInput: formatAmountForInput(initialState.amount),
+    dependentsInput: String(initialState.dependents),
+    pensionInput: formatAmountForInput(initialState.pension),
+  };
+}
+
+const defaultShareStatus = "Copiar link desta simulação";
+
+function SalaryCalculatorPanel({
+  className,
+  initialState,
+}: {
+  className?: string;
+  initialState: ShareableCalculatorState;
+}) {
+  const initialInputState = createInputState(initialState);
+  const [mode, setMode] = useState<CalculationMode>(initialInputState.mode);
+  const [salaryInput, setSalaryInput] = useState(initialInputState.salaryInput);
+  const [dependentsInput, setDependentsInput] = useState(initialInputState.dependentsInput);
+  const [pensionInput, setPensionInput] = useState(initialInputState.pensionInput);
+  const [shareStatus, setShareStatus] = useState(defaultShareStatus);
+
+  const parsedSalary = parseLocaleNumber(salaryInput);
+  const parsedDependents = parseDependents(dependentsInput);
+  const parsedPension = parseLocaleNumber(pensionInput);
 
   const result = calculateSalaryBreakdown({
     mode,
-    amount: parseLocaleNumber(salaryInput),
-    dependents: parseDependents(dependentsInput),
-    pension: parseLocaleNumber(pensionInput),
+    amount: parsedSalary,
+    dependents: parsedDependents,
+    pension: parsedPension,
   });
 
   const labels = resultLabels[mode];
+
+  useEffect(() => {
+    const nextUrl = buildCalculatorHref(
+      {
+        mode,
+        amount: parsedSalary,
+        dependents: parsedDependents,
+        pension: parsedPension,
+      },
+      { includeHash: false }
+    );
+
+    const nextHash = window.location.hash === "#calculadora" ? "#calculadora" : "";
+    window.history.replaceState({}, "", `${nextUrl}${nextHash}`);
+  }, [mode, parsedDependents, parsedPension, parsedSalary]);
+
+  useEffect(() => {
+    if (shareStatus === defaultShareStatus) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setShareStatus(defaultShareStatus);
+    }, 2200);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [shareStatus]);
 
   return (
     <section
@@ -191,7 +277,7 @@ export function SalaryCalculator({ className }: { className?: string }) {
               </Field>
             </FieldGroup>
 
-            <div className="mt-2 flex flex-wrap gap-3">
+            <div className="mt-2 flex flex-wrap items-center gap-3">
               <Button
                 variant="outline"
                 onClick={() => {
@@ -203,6 +289,27 @@ export function SalaryCalculator({ className }: { className?: string }) {
               >
                 Resetar simulação
               </Button>
+              <Button
+                variant="ghost"
+                onClick={async () => {
+                  const url = `${window.location.origin}${buildCalculatorHref({
+                    mode,
+                    amount: parsedSalary,
+                    dependents: parsedDependents,
+                    pension: parsedPension,
+                  })}`;
+
+                  try {
+                    await window.navigator.clipboard.writeText(url);
+                    setShareStatus("Link copiado para compartilhar esta simulação");
+                  } catch {
+                    setShareStatus("Não foi possível copiar o link agora");
+                  }
+                }}
+              >
+                Copiar link
+              </Button>
+              <span className="text-sm text-muted-foreground">{shareStatus}</span>
             </div>
           </div>
         </div>
@@ -324,5 +431,25 @@ export function SalaryCalculator({ className }: { className?: string }) {
         </div>
       </div>
     </section>
+  );
+}
+
+export function SalaryCalculator({ className }: { className?: string }) {
+  const locationSearch = useSyncExternalStore(
+    subscribeToLocationChange,
+    getLocationSearchSnapshot,
+    getServerLocationSearchSnapshot
+  );
+  const initialState =
+    locationSearch === ""
+      ? DEFAULT_CALCULATOR_STATE
+      : getInitialStateFromLocation(locationSearch);
+
+  return (
+    <SalaryCalculatorPanel
+      key={locationSearch || "default"}
+      className={className}
+      initialState={initialState}
+    />
   );
 }

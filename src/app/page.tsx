@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SalaryCalculator } from "@/components/salary-calculator";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteLogo } from "@/components/site-logo";
+import { buildCalculatorHref } from "@/lib/calculator-query";
 import { calculateSalaryBreakdown, formatCurrency } from "@/lib/salary";
 import { faqItems, siteConfig } from "@/lib/site";
 
@@ -447,6 +448,19 @@ export default function Home() {
                     <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
                       {item.description}
                     </p>
+                    <div className="pt-2">
+                      <a
+                        href={buildCalculatorHref({
+                          mode: "gross-to-net",
+                          amount: item.amount,
+                          dependents: item.dependents,
+                          pension: item.pension,
+                        })}
+                        className="inline-flex h-10 items-center justify-center rounded-full border border-border px-4 text-sm font-medium text-foreground transition-colors hover:bg-neutral-100"
+                      >
+                        Abrir na calculadora
+                      </a>
+                    </div>
                   </div>
 
                   <div className="grid gap-2 text-sm leading-6 text-foreground md:min-w-64">
