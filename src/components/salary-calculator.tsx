@@ -97,11 +97,12 @@ export function SalaryCalculator({ className }: { className?: string }) {
 
           <div className="mt-6 flex flex-col gap-3">
             <h2 className="font-display text-4xl leading-none tracking-[-0.04em] text-black md:text-5xl">
-              Simule com mais espaço e menos ruído.
+              Calculadora de salário líquido para CLT.
             </h2>
             <p className="max-w-xl text-sm leading-6 text-muted-foreground md:text-base md:leading-7">
-              Ajuste o salário, escolha o modo de cálculo e confira do lado o líquido
-              final, os descontos e a redução da Lei 15.270/2025.
+              Informe o valor mensal, escolha entre bruto para líquido ou líquido para
+              bruto e confira os descontos de INSS, IRRF e a redução mensal da Lei
+              15.270/2025.
             </p>
           </div>
 

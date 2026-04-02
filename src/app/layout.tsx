@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Salário Líquido | Calculadora CLT 2026",
+    default: "Cálculo Salário Líquido | Calculadora CLT 2026",
     template: "%s | Salário Líquido",
   },
   description: siteConfig.description,
@@ -31,12 +31,12 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Salário Líquido | Calculadora CLT 2026",
+    title: "Cálculo Salário Líquido | Calculadora CLT 2026",
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salário Líquido | Calculadora CLT 2026",
+    title: "Cálculo Salário Líquido | Calculadora CLT 2026",
     description: siteConfig.shortDescription,
   },
   category: "finance",

@@ -6,13 +6,19 @@ export const siteConfig = {
   name: "Salário Líquido",
   url: baseUrl,
   description:
-    "Calculadora de salário líquido CLT em PT-BR com INSS 2026, IRRF 2026 e redução da Lei 15.270/2025 para simular bruto para líquido e líquido para bruto.",
-  shortDescription: "Simule salário líquido CLT com regras brasileiras de 2026.",
+    "Cálculo salário líquido CLT em PT-BR com INSS 2026, IRRF 2026 e redução da Lei 15.270/2025 para simular bruto para líquido e líquido para bruto.",
+  shortDescription:
+    "Calculadora de salário líquido CLT com regras brasileiras de 2026.",
   keywords: [
     "calculo salario liquido",
     "calculadora de salario liquido",
     "calcular salario liquido",
     "desconto salario",
+    "calculadora clt 2026",
+    "salario bruto para liquido",
+    "salario liquido para bruto",
+    "simulador salario clt",
+    "como calcular salario liquido",
     "inss 2026",
     "irrf 2026",
     "lei 15270 2025",
@@ -50,6 +56,16 @@ export const faqItems = [
   {
     question: "O cálculo inclui férias, 13º ou horas extras?",
     answer:
-      "Não nesta primeira versão. A ferramenta foi focada no salário mensal recorrente de empregado CLT, doméstico e trabalhador avulso. Férias, 13º, horas extras, PLR e descontos internos da empresa ficaram fora do escopo inicial.",
+      "Não. A ferramenta foi focada no salário mensal recorrente de empregado CLT, doméstico e trabalhador avulso. Férias, 13º, horas extras, PLR e descontos internos da empresa ficam fora desta simulação principal.",
+  },
+  {
+    question: "Qual a diferença entre salário bruto e salário líquido?",
+    answer:
+      "Salário bruto é o valor contratual antes dos descontos. Salário líquido é o valor que sobra depois de aplicar INSS, IRRF, eventual pensão judicial e demais ajustes considerados na simulação.",
+  },
+  {
+    question: "Esta calculadora serve para analisar proposta de emprego?",
+    answer:
+      "Serve como referência para comparar ofertas CLT, entender quanto do salário bruto tende a virar líquido e antecipar o impacto tributário mensal. A conferência final deve considerar rubricas específicas do contrato e do holerite.",
   },
 ] as const;
