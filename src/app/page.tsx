@@ -166,8 +166,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex min-h-[calc(100svh-2rem)] flex-col justify-center pb-12 pt-20">
-            <div className="flex max-w-5xl flex-col gap-10 animate-rise">
+          <div className="flex flex-col pb-24 pt-14 md:pb-28 md:pt-18">
+            <div className="flex max-w-5xl flex-col gap-8 animate-rise md:gap-9">
               <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
                 <span>{siteConfig.name}</span>
                 <span className="text-zinc-600">/</span>
@@ -175,13 +175,10 @@ export default function Home() {
               </div>
 
               <div className="max-w-5xl">
-                <p className="max-w-2xl text-sm uppercase tracking-[0.24em] text-zinc-400">
-                  cálculo salário líquido, líquido para bruto e simulação de descontos reais
-                </p>
-                <h1 className="mt-5 max-w-5xl font-display text-[clamp(4.5rem,11vw,9rem)] leading-[0.88] tracking-[-0.06em] text-white">
+                <h1 className="max-w-5xl font-display text-[clamp(4.5rem,11vw,9rem)] leading-[0.88] tracking-[-0.06em] text-white">
                   Calculadora de salário líquido
                 </h1>
-                <p className="mt-8 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
+                <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
                   Simule seu salário CLT com INSS 2026, IRRF 2026 e a redução da Lei
                   15.270/2025. A conta compara automaticamente o desconto simplificado com
                   as deduções legais antes de mostrar o líquido final.
@@ -218,9 +215,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative z-10 bg-neutral-100 pb-20">
+      <section className="relative z-10 bg-neutral-100 pb-20 pt-12 md:pt-16">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-          <SalaryCalculator className="-mt-10 md:-mt-14 lg:-mt-16" />
+          <SalaryCalculator />
         </div>
       </section>
 
