@@ -17,31 +17,31 @@ export const metadata: Metadata = createPageMetadata({
 
 const highlights = [
   {
-    title: "Cálculo salário líquido",
-    body: "Conteúdo e simulação pensados para quem pesquisa como calcular salário líquido CLT sem depender de fórmulas soltas ou tabelas desatualizadas.",
-  },
-  {
     title: "INSS 2026",
-    body: "Faixas progressivas válidas desde janeiro de 2026, conforme tabela oficial do INSS, aplicadas até o teto previdenciário.",
+    body: "INSS com faixas de 2026. O desconto previdenciário é calculado faixa por faixa, do menor ao maior percentual. Você paga 7,5% sobre a primeira faixa e vai subindo até 14%.",
   },
   {
     title: "IRRF 2026",
-    body: "A conta compara desconto simplificado e deduções legais antes de definir a base mensal do imposto de renda retido na fonte.",
+    body: "IRRF com isenção até R$ 5 mil. A Lei 15.270/2025 pode zerar o imposto de renda para quem ganha até R$ 5.000 por mês. A calculadora já aplica essa regra automaticamente.",
+  },
+  {
+    title: "Atualizado",
+    body: "Tabelas de abril de 2026. Os valores usados aqui seguem as tabelas oficiais publicadas pela Receita Federal e pelo INSS para o ano corrente.",
   },
 ];
 
 const methodology = [
   {
-    title: "1. INSS progressivo",
-    body: "Aplicamos as quatro faixas do empregado CLT em 2026 para descobrir o desconto previdenciário mensal do trabalhador.",
+    title: "1. Desconta o INSS por faixas",
+    body: "O salário bruto passa pelas quatro faixas progressivas do INSS 2026. Cada faixa tem seu percentual, de 7,5% a 14%. O total é somado para chegar no desconto previdenciário.",
   },
   {
-    title: "2. Melhor dedução do IRRF",
-    body: "A base do imposto compara deduções legais com o desconto simplificado mensal de R$ 607,20 e escolhe automaticamente a alternativa mais vantajosa.",
+    title: "2. Calcula o IRRF pela melhor regra",
+    body: "A base do imposto de renda pode ser calculada de dois jeitos: pelas deduções legais (dependentes + pensão) ou pelo desconto simplificado de R$ 607,20 por mês. A calculadora testa os dois e escolhe o que resulta em mais líquido para você.",
   },
   {
-    title: "3. Redução da Lei 15.270/2025",
-    body: "Depois do IRRF bruto, a simulação abate a redução mensal prevista em lei para rendas dentro da faixa de benefício.",
+    title: "3. Aplica a redução da Lei 15.270/2025",
+    body: "Se a sua renda mensal se enquadra na faixa de benefício, o IRRF é reduzido ou zerado. Quem ganha até R$ 5.000 bruto, por exemplo, tende a ter imposto zero.",
   },
 ];
 
@@ -62,53 +62,53 @@ const limitations = [
 const guideBlocks = [
   {
     title: "Como calcular salário líquido CLT",
-    body: "O salário líquido parte do valor bruto mensal. Primeiro vem o INSS progressivo. Depois, a base do IRRF é ajustada com deduções legais ou desconto simplificado. Por fim, a Lei 15.270/2025 pode reduzir o imposto para parte das rendas mensais.",
+    body: "O caminho do bruto até o líquido tem três paradas obrigatórias: INSS, base do IRRF e imposto final. O INSS sai primeiro, direto do bruto. Depois, o que sobra vira a base para calcular o imposto de renda. Dependendo do seu caso, a base usa deduções legais ou desconto simplificado, o que for melhor para você. Por fim, a Lei 15.270/2025 pode reduzir ou eliminar o IRRF se sua renda mensal estiver dentro da faixa de benefício.",
   },
   {
-    title: "Quando o desconto simplificado ajuda",
-    body: "Se dependentes e pensão judicial não gerarem dedução maior, o desconto simplificado mensal tende a ser a melhor escolha. A calculadora compara os dois cenários e usa o que preserva mais líquido.",
+    title: "Quando o desconto simplificado compensa",
+    body: "O desconto simplificado é um abatimento fixo de R$ 607,20 por mês na base do IRRF. Ele compensa quando você não tem dependentes e não paga pensão judicial, porque nesses casos as deduções legais ficam menores que R$ 607,20. A calculadora compara os dois cenários automaticamente e usa o melhor.",
   },
   {
-    title: "O que significa desconto salário",
-    body: "Na prática, desconto de salário reúne retenções obrigatórias e abatimentos específicos. Aqui o foco está em INSS, IRRF e pensão judicial, que são os elementos centrais para entender o salário líquido mensal.",
+    title: 'O que significa "desconto de salário"',
+    body: 'Quando alguém pesquisa "desconto salário", geralmente quer entender por que o líquido é menor que o bruto. Os descontos obrigatórios são dois: INSS (previdência) e IRRF (imposto de renda). Existem outros possíveis, como vale-transporte, pensão alimentícia e contribuição sindical, mas INSS e IRRF são os que mais pesam no contracheque.',
   },
 ];
 
 const interpretationTips = [
   {
-    title: "Leia primeiro o valor principal",
-    body: "No modo bruto para líquido, o destaque mostra quanto tende a sobrar no mês. No modo líquido para bruto, ele estima qual bruto é necessário para atingir o valor desejado.",
+    title: "O número principal é o seu líquido estimado",
+    body: "No modo bruto para líquido, é quanto tende a cair na conta. No modo líquido para bruto, é o salário bruto necessário para chegar naquele valor.",
   },
   {
-    title: "Confira a base do IRRF",
-    body: "A base do imposto ajuda a entender por que duas pessoas com o mesmo bruto podem ter retenções diferentes ao informar dependentes ou pensão judicial.",
+    title: "A base do IRRF explica as diferenças",
+    body: "Duas pessoas com o mesmo bruto podem ter IRRFs diferentes se uma tem dependentes ou paga pensão judicial. Confira esse campo se o desconto parecer alto.",
   },
   {
-    title: "Observe a redução aplicada",
-    body: "Se houver redução da Lei 15.270/2025, o campo aparece separado para mostrar quanto do imposto foi abatido naquele cenário.",
+    title: "A redução aparece separada quando existe",
+    body: "Se a Lei 15.270/2025 reduziu ou zerou seu IRRF, o campo mostra exatamente quanto foi abatido.",
   },
   {
-    title: "Valide rubricas fora da simulação",
-    body: "Benefícios, adicionais, convenções coletivas, descontos internos e descontos facultativos podem alterar o valor final no holerite real.",
+    title: "O resultado é uma simulação, não um holerite",
+    body: "Benefícios, adicionais, convenções coletivas e descontos internos da empresa não entram aqui. Compare com seu contracheque real e ajuste se necessário.",
   },
 ];
 
 const practicalMoments = [
   {
-    title: "Avaliar proposta de emprego",
-    body: "Use a calculadora de salário líquido para comparar ofertas CLT e entender quanto do bruto deve virar líquido depois de impostos e previdência.",
+    title: "Recebeu uma proposta de emprego",
+    body: "Compare ofertas CLT pelo que realmente importa: o líquido. Duas propostas com R$ 1.000 de diferença no bruto podem ter menos de R$ 600 de diferença no líquido.",
   },
   {
-    title: "Planejar aumento ou promoção",
-    body: "Nem todo reajuste nominal produz o mesmo ganho líquido. A simulação ajuda a ver o impacto real da nova faixa salarial no bolso.",
+    title: "Quer negociar salário",
+    body: "Use o modo líquido para bruto. Defina quanto precisa receber na conta e descubra qual bruto pedir na negociação.",
   },
   {
-    title: "Organizar orçamento mensal",
-    body: "Quem busca previsibilidade pode usar o cálculo para projetar renda disponível e tomar decisões com uma estimativa mais próxima da folha.",
+    title: "Recebeu aumento ou promoção",
+    body: "Nem todo aumento no bruto se traduz proporcionalmente no líquido. Simule para ver quanto realmente muda.",
   },
   {
-    title: "Negociar líquido desejado",
-    body: "No modo líquido para bruto, dá para estimar o salário bruto necessário para chegar a uma meta mensal, o que ajuda em negociações salariais.",
+    title: "Está montando o orçamento do mês",
+    body: "Saber o líquido previsível é o primeiro passo para organizar gastos fixos, investimentos e reserva.",
   },
 ];
 
@@ -129,25 +129,25 @@ const sourceLinks = [
 
 const exampleInputs = [
   {
-    title: "Simulação para salário bruto de R$ 3.000",
+    title: "Salário bruto de R$ 3.000/mês",
     description:
-      "Faixa comum em pesquisas sobre cálculo de salário líquido e desconto salário para início ou transição de carreira.",
+      "Perfil típico: auxiliar administrativo, atendente, técnico em início de carreira. INSS de R$ 248,60, IRRF zerado pela Lei 15.270/2025. Sobram R$ 2.751,40 na conta.",
     amount: 3000,
     dependents: 0,
     pension: 0,
   },
   {
-    title: "Simulação para salário bruto de R$ 5.000",
+    title: "Salário bruto de R$ 5.000/mês",
     description:
-      "Exemplo útil para quem quer entender a faixa em que a redução mensal do IRRF ganha mais relevância no resultado.",
+      "Perfil típico: analista pleno, coordenador, profissional com 5+ anos. INSS de R$ 501,51, IRRF zerado pela redução mensal. Líquido de R$ 4.498,49, a isenção faz diferença aqui.",
     amount: 5000,
     dependents: 0,
     pension: 0,
   },
   {
-    title: "Simulação para salário bruto de R$ 8.000",
+    title: "Salário bruto de R$ 8.000/mês",
     description:
-      "Referência para salários em que a tributação mensal pesa mais e a leitura da base do IRRF costuma fazer diferença.",
+      "Perfil típico: gerente, especialista sênior, profissional com salário acima da faixa de isenção. INSS de R$ 921,51 + IRRF de R$ 985,72. Líquido de R$ 6.092,77, nessa faixa, dependentes podem reduzir o imposto.",
     amount: 8000,
     dependents: 1,
     pension: 0,
@@ -263,13 +263,12 @@ export default function Home() {
 
                 <div className="max-w-5xl">
                   <h1 className="max-w-5xl font-display text-[clamp(4rem,11vw,8.8rem)] leading-[0.88] tracking-[-0.06em] text-white">
-                    Calculadora de salário líquido CLT
+                    Descubra quanto do seu salário sobra depois dos descontos
                   </h1>
                   <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
-                    Faça o cálculo salário líquido com INSS 2026, IRRF 2026 e redução da
-                    Lei 15.270/2025. A simulação compara automaticamente desconto
-                    simplificado e deduções legais antes de mostrar quanto sobra no mês
-                    ou qual bruto é necessário para atingir um líquido desejado.
+                    Simule INSS, IRRF e a nova isenção da Lei 15.270/2025 em segundos.
+                    Informe o bruto, veja o líquido. Ou informe o líquido desejado e
+                    descubra quanto precisa ganhar.
                   </p>
                 </div>
 
@@ -278,13 +277,13 @@ export default function Home() {
                     href="#calculadora"
                     className="inline-flex h-11 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5"
                   >
-                    Calcular agora
+                    Calcular meu salário líquido
                   </a>
                   <a
-                    href="#guia"
+                    href="#metodologia"
                     className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/8"
                   >
-                    Entender o cálculo
+                    Como funciona o cálculo
                   </a>
                 </div>
 
@@ -316,11 +315,11 @@ export default function Home() {
                 Metodologia
               </p>
               <h2 className="max-w-lg font-display text-4xl leading-tight tracking-[-0.04em] text-foreground md:text-5xl">
-                Cálculo de salário líquido com regras oficiais e leitura simples.
+                Como a calculadora chega no resultado
               </h2>
               <p className="max-w-md text-base leading-7 text-muted-foreground">
-                O simulador usa tabelas públicas de 2026 e organiza a conta em etapas
-                para facilitar a conferência do resultado.
+                Três etapas, na mesma ordem que o departamento pessoal usa para fechar a
+                folha.
               </p>
             </div>
 
@@ -370,12 +369,11 @@ export default function Home() {
                   Guia
                 </p>
                 <h2 className="max-w-xl font-display text-4xl leading-tight tracking-[-0.04em] text-foreground md:text-5xl">
-                  Cálculo salário líquido: o que entra na conta e por que o resultado muda.
+                  Cálculo de salário líquido: o que você precisa saber
                 </h2>
                 <p className="max-w-lg text-base leading-7 text-muted-foreground">
-                  Quem pesquisa por calculadora de salário líquido normalmente quer duas
-                  respostas: quanto vai receber de fato e quais descontos explicam esse
-                  valor. Os blocos abaixo resumem as partes centrais da simulação.
+                  Os descontos que separam o bruto do líquido explicados sem jargão, com
+                  exemplos práticos.
                 </p>
 
                 <div className="rounded-[1.75rem] border border-black/8 bg-white px-6 py-5">
@@ -431,11 +429,11 @@ export default function Home() {
                 Exemplos
               </p>
               <h2 className="max-w-lg font-display text-4xl leading-tight tracking-[-0.04em] text-foreground md:text-5xl">
-                Exemplos práticos de cálculo de salário líquido.
+                Quanto sobra na prática: 3 faixas de salário simuladas
               </h2>
               <p className="max-w-md text-base leading-7 text-muted-foreground">
-                Estes cenários usam o mesmo motor da calculadora e ajudam a visualizar o
-                impacto do INSS e do IRRF em faixas de renda pesquisadas com frequência.
+                Cenários reais com os mesmos cálculos da ferramenta acima. Clique para
+                ajustar no simulador.
               </p>
             </div>
 
@@ -457,7 +455,7 @@ export default function Home() {
                         })}
                         className="inline-flex h-10 items-center justify-center rounded-full border border-border px-4 text-sm font-medium text-foreground transition-colors hover:bg-neutral-100"
                       >
-                        Abrir na calculadora
+                        Ajustar no simulador
                       </a>
                     </div>
                   </div>
@@ -493,7 +491,7 @@ export default function Home() {
                 Leitura da simulação
               </p>
               <h2 className="max-w-xl font-display text-4xl leading-tight tracking-[-0.04em] text-foreground md:text-5xl">
-                Como interpretar o resultado sem depender de suposição.
+                Como ler o resultado da calculadora
               </h2>
             </div>
 
@@ -553,11 +551,11 @@ export default function Home() {
                 Quando usar
               </p>
               <h2 className="max-w-lg font-display text-4xl leading-tight tracking-[-0.04em] text-foreground md:text-5xl">
-                Situações em que calcular salário líquido ajuda de verdade.
+                Quando faz sentido calcular o salário líquido
               </h2>
               <p className="max-w-md text-base leading-7 text-muted-foreground">
-                A busca por cálculo de salário líquido costuma surgir em momentos de
-                decisão. Estes são alguns dos cenários mais comuns.
+                A simulação ajuda mais quando você precisa transformar bruto em decisão
+                prática.
               </p>
             </div>
 

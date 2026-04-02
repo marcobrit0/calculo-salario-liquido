@@ -83,4 +83,34 @@ export const faqItems = [
     answer:
       "Serve como referência para comparar ofertas CLT, entender quanto do salário bruto tende a virar líquido e antecipar o impacto tributário mensal. A conferência final deve considerar rubricas específicas do contrato e do holerite.",
   },
+  {
+    question: "Quanto desconta de INSS em 2026?",
+    answer:
+      "O INSS é progressivo: 7,5% sobre a primeira faixa (até R$ 1.518), 9% na segunda, 12% na terceira e 14% na quarta (até o teto de R$ 8.475,55). O desconto total é a soma de cada faixa, não uma alíquota única sobre o bruto inteiro.",
+  },
+  {
+    question: "O que é o desconto simplificado mensal do IRRF?",
+    answer:
+      "É um abatimento fixo de R$ 607,20 por mês na base de cálculo do imposto de renda. Ele substitui as deduções legais, como dependentes e pensão, quando resulta em menos imposto. A calculadora compara os dois automaticamente.",
+  },
+  {
+    question: "Quem ganha R$ 5.000 bruto realmente não paga IRRF?",
+    answer:
+      "Na simulação mensal com as regras de 2026, sim. A combinação do desconto simplificado com a redução da Lei 15.270/2025 tende a zerar o imposto para essa faixa. Mas o resultado pode mudar se houver outras fontes de renda ou ajuste na declaração anual.",
+  },
+  {
+    question: "A calculadora funciona para empregado doméstico?",
+    answer:
+      "As regras de INSS e IRRF aplicadas aqui são as mesmas para empregado CLT, doméstico e trabalhador avulso no regime mensal. A simulação é válida como referência para os três.",
+  },
+  {
+    question: "Como a pensão alimentícia afeta o salário líquido?",
+    answer:
+      "A pensão judicial é descontada do bruto antes do cálculo do IRRF, o que reduz a base tributável. Na prática, quem paga pensão tem menos IRRF, mas o líquido final também é menor porque a pensão sai diretamente do salário.",
+  },
+  {
+    question: "O resultado da calculadora é igual ao holerite?",
+    answer:
+      "Não necessariamente. O holerite pode incluir adicionais, como noturno, periculosidade e insalubridade, além de descontos de vale-transporte, plano de saúde, empréstimo consignado e outras rubricas que não fazem parte desta simulação. Use o resultado como estimativa dos descontos obrigatórios.",
+  },
 ] as const;

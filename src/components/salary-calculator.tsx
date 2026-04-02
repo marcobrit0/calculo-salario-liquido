@@ -192,6 +192,10 @@ function SalaryCalculatorPanel({
             </p>
           </div>
 
+          <p className="mt-6 text-sm leading-6 text-foreground">
+            Resultado em segundos. Sem cadastro, sem e-mail, sem pegadinha.
+          </p>
+
           <div className="mt-8 flex flex-col gap-6">
             <FieldGroup>
               <Field>
@@ -428,6 +432,11 @@ function SalaryCalculatorPanel({
               </AlertDescription>
             </Alert>
           ) : null}
+
+          <p className="text-sm leading-6 text-muted-foreground">
+            Esse cálculo usa as tabelas oficiais de 2026. Para conferir, veja as fontes
+            no final da página.
+          </p>
         </div>
       </div>
     </section>
