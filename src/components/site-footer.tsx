@@ -1,33 +1,12 @@
 import Link from "next/link";
 
 import { SiteLogo } from "@/components/site-logo";
-
-const navigationLinks = [
-  { label: "Calculadora", href: "/#calculadora" },
-  { label: "Metodologia", href: "/#metodologia" },
-  { label: "Guia", href: "/#guia" },
-  { label: "FAQ", href: "/#faq" },
-];
+import { homeNavigationLinks, officialSourceLinks } from "@/lib/home-content";
 
 const legalLinks = [
   { label: "Privacidade", href: "/privacidade" },
   { label: "Termos de uso", href: "/termos" },
-];
-
-const sourceLinks = [
-  {
-    label: "Receita Federal",
-    href: "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026",
-  },
-  {
-    label: "INSS",
-    href: "https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal",
-  },
-  {
-    label: "Lei 15.270/2025",
-    href: "https://www.planalto.gov.br/ccivil_03/_Ato2023-2026/2025/Lei/L15270.htm",
-  },
-];
+] as const;
 
 export function SiteFooter() {
   return (
@@ -51,8 +30,12 @@ export function SiteFooter() {
             Navegação
           </h2>
           <nav className="flex flex-col gap-3 text-sm text-zinc-300">
-            {navigationLinks.map((item) => (
-              <Link key={item.href} href={item.href} className="transition-colors hover:text-white">
+            {homeNavigationLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={`/${item.href}`}
+                className="transition-colors hover:text-white"
+              >
                 {item.label}
               </Link>
             ))}
@@ -75,7 +58,7 @@ export function SiteFooter() {
             Fontes oficiais
           </h2>
           <div className="flex flex-col gap-3 text-sm text-zinc-300">
-            {sourceLinks.map((item) => (
+            {officialSourceLinks.map((item) => (
               <a
                 key={item.href}
                 href={item.href}

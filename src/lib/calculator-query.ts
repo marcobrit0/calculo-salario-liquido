@@ -1,4 +1,5 @@
 import type { CalculationMode } from "@/lib/salary";
+import { parseNonNegativeInteger, parsePtBrNumber } from "@/lib/pt-br";
 
 export type ShareableCalculatorState = {
   mode: CalculationMode;
@@ -23,30 +24,6 @@ const QUERY_VALUE_TO_MODE = new Map(
   Object.entries(MODE_TO_QUERY_VALUE).map(([mode, value]) => [value, mode as CalculationMode])
 );
 
-function parseQueryNumber(value?: string | string[]) {
-  const rawValue = Array.isArray(value) ? value[0] : value;
-
-  if (!rawValue) {
-    return 0;
-  }
-
-  const sanitized = rawValue.trim().replace(/\s+/g, "");
-  const normalized =
-    sanitized.includes(",") && sanitized.includes(".")
-      ? sanitized.replace(/\./g, "").replace(",", ".")
-      : sanitized.replace(",", ".");
-  const numeric = Number(normalized.replace(/[^\d.-]/g, ""));
-
-  return Number.isFinite(numeric) ? numeric : 0;
-}
-
-function parseDependents(value?: string | string[]) {
-  const rawValue = Array.isArray(value) ? value[0] : value;
-  const numeric = Number.parseInt((rawValue ?? "").replace(/[^\d-]/g, ""), 10);
-
-  return Number.isFinite(numeric) ? Math.max(0, numeric) : 0;
-}
-
 function roundCurrency(value: number) {
   return Math.round(value * 100) / 100;
 }
@@ -70,11 +47,15 @@ export function parseCalculatorSearchParams(searchParams: Record<string, string 
 
   return normalizeCalculatorState({
     mode,
-    amount: searchParams.valor ? parseQueryNumber(searchParams.valor) : DEFAULT_CALCULATOR_STATE.amount,
+    amount: searchParams.valor
+      ? parsePtBrNumber(searchParams.valor)
+      : DEFAULT_CALCULATOR_STATE.amount,
     dependents: searchParams.dependentes
-      ? parseDependents(searchParams.dependentes)
+      ? parseNonNegativeInteger(searchParams.dependentes)
       : DEFAULT_CALCULATOR_STATE.dependents,
-    pension: searchParams.pensao ? parseQueryNumber(searchParams.pensao) : DEFAULT_CALCULATOR_STATE.pension,
+    pension: searchParams.pensao
+      ? parsePtBrNumber(searchParams.pensao)
+      : DEFAULT_CALCULATOR_STATE.pension,
   });
 }
 
