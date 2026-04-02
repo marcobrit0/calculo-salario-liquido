@@ -17,27 +17,63 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
   title: {
-    default: "Cálculo Salário Líquido | Calculadora CLT 2026",
+    default: siteConfig.title,
     template: "%s | Salário Líquido",
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  alternates: {
-    canonical: "/",
+  manifest: "/manifest.webmanifest",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    address: false,
+    email: false,
+    telephone: false,
   },
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Cálculo Salário Líquido | Calculadora CLT 2026",
+    title: siteConfig.title,
     description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cálculo Salário Líquido | Calculadora CLT 2026",
+    title: siteConfig.title,
     description: siteConfig.shortDescription,
+    images: [siteConfig.defaultOgImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    google: siteConfig.verification.google,
+    other: siteConfig.verification.bing
+      ? {
+          "msvalidate.01": siteConfig.verification.bing,
+        }
+      : undefined,
   },
   category: "finance",
 };

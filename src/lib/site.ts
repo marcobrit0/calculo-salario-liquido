@@ -2,13 +2,24 @@ const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://calculo-salario-liquido.vercel.app";
 
+const googleSiteVerification =
+  process.env.GOOGLE_SITE_VERIFICATION ??
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
+const bingSiteVerification =
+  process.env.BING_SITE_VERIFICATION ??
+  process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
+
 export const siteConfig = {
   name: "Salário Líquido",
   url: baseUrl,
+  locale: "pt-BR",
+  title: "Cálculo Salário Líquido | Calculadora CLT 2026",
   description:
     "Cálculo salário líquido CLT em PT-BR com INSS 2026, IRRF 2026 e redução da Lei 15.270/2025 para simular bruto para líquido e líquido para bruto.",
   shortDescription:
     "Calculadora de salário líquido CLT com regras brasileiras de 2026.",
+  defaultOgImage: "/opengraph-image",
   keywords: [
     "calculo salario liquido",
     "calculadora de salario liquido",
@@ -25,6 +36,10 @@ export const siteConfig = {
     "salario liquido clt",
     "liquido para bruto",
   ],
+  verification: {
+    google: googleSiteVerification,
+    bing: bingSiteVerification,
+  },
 };
 
 export const faqItems = [

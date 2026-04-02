@@ -3,15 +3,14 @@ import Link from "next/link";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteLogo } from "@/components/site-logo";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Termos de Uso",
   description:
     "Termos de Uso da calculadora Salário Líquido, com regras de utilização, escopo da simulação, limitações de responsabilidade e condições gerais do serviço.",
-  alternates: {
-    canonical: "/termos",
-  },
-};
+  pathname: "/termos",
+});
 
 const sections = [
   {

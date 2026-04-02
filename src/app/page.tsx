@@ -4,17 +4,16 @@ import { SalaryCalculator } from "@/components/salary-calculator";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteLogo } from "@/components/site-logo";
 import { buildCalculatorHref } from "@/lib/calculator-query";
+import { createPageMetadata } from "@/lib/seo";
 import { calculateSalaryBreakdown, formatCurrency } from "@/lib/salary";
 import { faqItems, siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Cálculo Salário Líquido CLT 2026",
   description:
     "Cálculo salário líquido CLT com INSS 2026, IRRF 2026 e redução da Lei 15.270/2025. Use a calculadora de salário líquido para simular bruto para líquido ou líquido para bruto.",
-  alternates: {
-    canonical: "/",
-  },
-};
+  pathname: "/",
+});
 
 const highlights = [
   {

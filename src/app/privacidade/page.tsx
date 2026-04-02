@@ -3,15 +3,14 @@ import Link from "next/link";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteLogo } from "@/components/site-logo";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Política de Privacidade",
   description:
     "Política de Privacidade da calculadora Salário Líquido, com resumo sobre dados tratados, funcionamento local da simulação e limitações do serviço.",
-  alternates: {
-    canonical: "/privacidade",
-  },
-};
+  pathname: "/privacidade",
+});
 
 const sections = [
   {
