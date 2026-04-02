@@ -1,0 +1,291 @@
+"use client";
+
+import { useState } from "react";
+import { Calculator, Landmark, Scale, Wallet } from "lucide-react";
+
+import {
+  calculateSalaryBreakdown,
+  formatCurrency,
+  type CalculationMode,
+} from "@/lib/salary";
+import { Badge } from "@/components/ui/badge";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Button } from "@/components/ui/button";
+
+function parseLocaleNumber(value: string) {
+  const sanitized = value.trim().replace(/\s+/g, "");
+
+  if (!sanitized) {
+    return 0;
+  }
+
+  const normalized = sanitized.includes(",") && sanitized.includes(".")
+    ? sanitized.replace(/\./g, "").replace(",", ".")
+    : sanitized.replace(",", ".");
+
+  const numeric = Number(normalized.replace(/[^\d.-]/g, ""));
+  return Number.isFinite(numeric) ? numeric : 0;
+}
+
+function parseDependents(value: string) {
+  const numeric = Number.parseInt(value.replace(/[^\d-]/g, ""), 10);
+  return Number.isFinite(numeric) ? Math.max(0, numeric) : 0;
+}
+
+function formatCurrencyInput(value: string) {
+  const numeric = parseLocaleNumber(value);
+  return numeric ? numeric.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "";
+}
+
+function formatDependentsInput(value: string) {
+  const numeric = parseDependents(value);
+  return String(numeric);
+}
+
+const resultLabels = {
+  "gross-to-net": {
+    primary: "Salário líquido estimado",
+    secondary: "Salário bruto informado",
+  },
+  "net-to-gross": {
+    primary: "Salário bruto estimado",
+    secondary: "Líquido desejado",
+  },
+} as const;
+
+export function SalaryCalculator() {
+  const [mode, setMode] = useState<CalculationMode>("gross-to-net");
+  const [salaryInput, setSalaryInput] = useState("5.000,00");
+  const [dependentsInput, setDependentsInput] = useState("0");
+  const [pensionInput, setPensionInput] = useState("");
+
+  const result = calculateSalaryBreakdown({
+    mode,
+    amount: parseLocaleNumber(salaryInput),
+    dependents: parseDependents(dependentsInput),
+    pension: parseLocaleNumber(pensionInput),
+  });
+
+  const labels = resultLabels[mode];
+
+  return (
+    <section
+      id="calculadora"
+      className="animate-rise self-center rounded-[2rem] border border-white/12 bg-white p-6 text-black shadow-[0_32px_80px_rgba(0,0,0,0.22)] md:p-8"
+    >
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <Badge variant="outline">Atualizado para abril de 2026</Badge>
+        <span className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
+          empregado CLT
+        </span>
+      </div>
+
+      <div className="mt-6 flex flex-col gap-3">
+        <h2 className="font-display text-4xl leading-none tracking-[-0.04em] text-black">
+          Simule em segundos.
+        </h2>
+        <p className="max-w-lg text-sm leading-6 text-muted-foreground">
+          Escolha entre bruto para líquido ou líquido para bruto. O cálculo compara
+          automaticamente deduções legais com o desconto simplificado mensal.
+        </p>
+      </div>
+
+      <div className="mt-6 flex flex-col gap-6">
+        <FieldGroup>
+          <Field>
+            <FieldLabel>Modo de cálculo</FieldLabel>
+            <ToggleGroup
+              value={[mode]}
+              onValueChange={(value) => {
+                if (value[0]) {
+                  setMode(value[0] as CalculationMode);
+                }
+              }}
+              variant="outline"
+              size="lg"
+              className="w-full"
+            >
+              <ToggleGroupItem value="gross-to-net" className="flex-1">
+                Bruto para líquido
+              </ToggleGroupItem>
+              <ToggleGroupItem value="net-to-gross" className="flex-1">
+                Líquido para bruto
+              </ToggleGroupItem>
+            </ToggleGroup>
+          </Field>
+        </FieldGroup>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          <FieldGroup>
+            <Field>
+              <FieldLabel htmlFor="salary-value">
+                {mode === "gross-to-net" ? "Salário bruto mensal" : "Salário líquido desejado"}
+              </FieldLabel>
+              <Input
+                id="salary-value"
+                inputMode="decimal"
+                placeholder="5.000,00"
+                value={salaryInput}
+                onChange={(event) => setSalaryInput(event.target.value)}
+                onBlur={() => setSalaryInput((current) => formatCurrencyInput(current))}
+              />
+              <FieldDescription>
+                Informe apenas a remuneração mensal fixa usada no cálculo principal.
+              </FieldDescription>
+            </Field>
+          </FieldGroup>
+
+          <FieldGroup>
+            <Field>
+              <FieldLabel htmlFor="dependents">Dependentes no IRRF</FieldLabel>
+              <Input
+                id="dependents"
+                inputMode="numeric"
+                placeholder="0"
+                value={dependentsInput}
+                onChange={(event) => setDependentsInput(event.target.value)}
+                onBlur={() => setDependentsInput((current) => formatDependentsInput(current))}
+              />
+              <FieldDescription>Use a quantidade considerada no imposto de renda.</FieldDescription>
+            </Field>
+          </FieldGroup>
+        </div>
+
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="pension">Pensão alimentícia judicial mensal</FieldLabel>
+            <Input
+              id="pension"
+              inputMode="decimal"
+              placeholder="0,00"
+              value={pensionInput}
+              onChange={(event) => setPensionInput(event.target.value)}
+              onBlur={() => setPensionInput((current) => formatCurrencyInput(current))}
+            />
+            <FieldDescription>
+              Informe apenas valores pagos por decisão judicial ou escritura pública.
+            </FieldDescription>
+          </Field>
+        </FieldGroup>
+      </div>
+
+      <div className="mt-8 rounded-[1.5rem] bg-neutral-950 p-6 text-white">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">{labels.primary}</p>
+            <p className="mt-3 font-display text-[clamp(2.6rem,6vw,4.5rem)] leading-none tracking-[-0.05em]">
+              {formatCurrency(result.primaryResult)}
+            </p>
+          </div>
+
+          <div className="flex flex-col items-start gap-2 text-sm text-zinc-300">
+            <Badge variant="secondary">{result.selectedDeductionLabel}</Badge>
+            <span>
+              {labels.secondary}: <strong className="font-medium text-white">{formatCurrency(result.secondaryResult)}</strong>
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-3 border-t border-white/10 pt-6 md:grid-cols-3">
+          <div className="flex items-start gap-3">
+            <Calculator className="mt-0.5 size-4 text-zinc-400" />
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">INSS</p>
+              <p className="mt-1 text-sm text-zinc-300">{formatCurrency(result.inss)}</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <Scale className="mt-0.5 size-4 text-zinc-400" />
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">IRRF</p>
+              <p className="mt-1 text-sm text-zinc-300">{formatCurrency(result.irrf)}</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <Wallet className="mt-0.5 size-4 text-zinc-400" />
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">Base IRRF</p>
+              <p className="mt-1 text-sm text-zinc-300">{formatCurrency(result.irrfBase)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 flex flex-col gap-3 text-sm leading-6 text-muted-foreground">
+        <div className="flex items-center justify-between gap-4">
+          <span>Salário bruto</span>
+          <strong className="font-mono text-sm text-foreground">{formatCurrency(result.grossSalary)}</strong>
+        </div>
+        <Separator />
+        <div className="flex items-center justify-between gap-4">
+          <span>INSS do trabalhador</span>
+          <strong className="font-mono text-sm text-foreground">- {formatCurrency(result.inss)}</strong>
+        </div>
+        <Separator />
+        <div className="flex items-center justify-between gap-4">
+          <span>Pensão alimentícia</span>
+          <strong className="font-mono text-sm text-foreground">- {formatCurrency(result.pension)}</strong>
+        </div>
+        <Separator />
+        <div className="flex items-center justify-between gap-4">
+          <span>IRRF final</span>
+          <strong className="font-mono text-sm text-foreground">- {formatCurrency(result.irrf)}</strong>
+        </div>
+        <Separator />
+        <div className="flex items-center justify-between gap-4">
+          <span>Redução mensal da Lei 15.270/2025</span>
+          <strong className="font-mono text-sm text-foreground">
+            {result.irrfReduction ? formatCurrency(result.irrfReduction) : "R$ 0,00"}
+          </strong>
+        </div>
+      </div>
+
+      <Alert className="mt-6">
+        <Landmark className="size-4" />
+        <AlertTitle>O cálculo escolhe automaticamente o regime mais vantajoso.</AlertTitle>
+        <AlertDescription>
+          {result.selectedDeductionLabel}. Deduções legais consideradas:{" "}
+          {formatCurrency(result.legalDeduction)}. Desconto simplificado mensal:{" "}
+          {formatCurrency(result.simplifiedDeduction)}.
+        </AlertDescription>
+      </Alert>
+
+      {result.irrfReduction > 0 ? (
+        <Alert className="mt-4">
+          <Scale className="size-4" />
+          <AlertTitle>Redução do IRRF aplicada.</AlertTitle>
+          <AlertDescription>
+            A renda mensal informada ficou dentro da faixa de redução prevista pela Lei
+            15.270/2025, então o imposto calculado foi abatido em{" "}
+            {formatCurrency(result.irrfReduction)}.
+          </AlertDescription>
+        </Alert>
+      ) : null}
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Button
+          variant="outline"
+          onClick={() => {
+            setMode("gross-to-net");
+            setSalaryInput("5.000,00");
+            setDependentsInput("0");
+            setPensionInput("");
+          }}
+        >
+          Resetar simulação
+        </Button>
+      </div>
+    </section>
+  );
+}
