@@ -23,21 +23,13 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="flex flex-col pb-24 pt-14 md:pb-28 md:pt-18">
-          <div className="flex max-w-5xl animate-rise flex-col gap-8 md:gap-9">
-            <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              <span>Salário Líquido</span>
-              <span className="text-zinc-600">/</span>
-              <span>cálculo salário líquido</span>
-              <span className="text-zinc-600">/</span>
-              <span>CLT 2026</span>
-            </div>
-
+        <div className="flex flex-col pb-20 pt-10 md:pb-24 md:pt-14">
+          <div className="flex max-w-5xl animate-rise flex-col gap-6 md:gap-8">
             <div className="max-w-5xl">
-              <h1 className="max-w-5xl font-display text-[clamp(4rem,11vw,8.8rem)] leading-[0.88] tracking-[-0.06em] text-white">
+              <h1 className="max-w-5xl font-display text-[clamp(3.1rem,8.8vw,7rem)] leading-[0.9] tracking-[-0.055em] text-white">
                 Descubra quanto do seu salário sobra depois dos descontos
               </h1>
-              <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
+              <p className="mt-5 max-w-3xl text-sm leading-7 text-zinc-300 md:text-base md:leading-8">
                 Simule INSS, IRRF e a nova isenção da Lei 15.270/2025 em segundos.
                 Informe o bruto, veja o líquido. Ou informe o líquido desejado e descubra
                 quanto precisa ganhar.
