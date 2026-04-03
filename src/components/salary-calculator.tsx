@@ -49,7 +49,7 @@ function getLocationSearchSnapshot() {
 }
 
 function getServerLocationSearchSnapshot() {
-  return "";
+  return typeof window === "undefined" ? "" : window.location.search;
 }
 
 function getInitialStateFromLocation(search: string) {
