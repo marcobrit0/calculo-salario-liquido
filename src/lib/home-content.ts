@@ -39,6 +39,70 @@ export const heroHighlights = [
   },
 ] as const;
 
+export const inssTableRows = [
+  { salaryRange: "Até R$ 1.621,00", rate: "7,5%" },
+  { salaryRange: "De R$ 1.621,01 a R$ 2.902,84", rate: "9%" },
+  { salaryRange: "De R$ 2.902,85 a R$ 4.354,27", rate: "12%" },
+  { salaryRange: "De R$ 4.354,28 a R$ 8.475,55", rate: "14%" },
+] as const;
+
+export const irrfTableRows = [
+  { taxBase: "Até R$ 2.428,80", rate: "Isento", deduction: "—" },
+  { taxBase: "De R$ 2.428,81 a R$ 2.826,65", rate: "7,5%", deduction: "R$ 182,16" },
+  { taxBase: "De R$ 2.826,66 a R$ 3.751,05", rate: "15%", deduction: "R$ 394,16" },
+  { taxBase: "De R$ 3.751,06 a R$ 4.664,68", rate: "22,5%", deduction: "R$ 675,49" },
+  { taxBase: "Acima de R$ 4.664,68", rate: "27,5%", deduction: "R$ 908,73" },
+] as const;
+
+export const lawChangeBlocks = [
+  {
+    label: undefined,
+    body: "A Lei 15.270, sancionada em 2025, criou uma redução progressiva no IRRF mensal para trabalhadores com renda dentro de uma faixa específica. Na prática, quem ganha até R$ 5.000 brutos por mês tende a ter o IRRF zerado a partir de janeiro de 2026.",
+  },
+  {
+    label: "Como funciona a redução:",
+    body: "Depois de calcular o IRRF pela tabela normal, o sistema aplica um desconto proporcional à renda. Para rendas até R$ 5.000, o desconto costuma zerar o imposto. Acima disso, o benefício diminui gradualmente até desaparecer.",
+  },
+  {
+    label: "Quem é afetado:",
+    body: "Empregados CLT, domésticos e trabalhadores avulsos com renda mensal na faixa de benefício. A redução é aplicada automaticamente na folha — não é necessário fazer nenhum pedido.",
+  },
+  {
+    label: "O que a lei NÃO muda:",
+    body: "As alíquotas do INSS seguem iguais. A tabela base do IRRF também. A mudança está exclusivamente na redução aplicada depois do cálculo do imposto.",
+  },
+] as const;
+
+export const grossVsNetBlocks = [
+  {
+    title: "Salário bruto",
+    body: "é o valor que aparece no contrato de trabalho. É a remuneração antes de qualquer desconto — o ponto de partida.",
+  },
+  {
+    title: "Salário líquido",
+    body: "é o que sobra depois de descontar INSS, IRRF e eventuais deduções como pensão alimentícia. É o que cai na conta bancária.",
+  },
+] as const;
+
+export const payslipCheckSteps = [
+  {
+    title: "Passo 1: Localize o salário base no holerite.",
+    body: "Ignore adicionais, horas extras e gratificações por enquanto. Use o valor do salário-base ou a remuneração fixa mensal.",
+  },
+  {
+    title: "Passo 2: Insira na calculadora.",
+    body: "Coloque o valor no campo de salário bruto, informe seus dependentes e pensão judicial (se houver), e compare o INSS e IRRF com os valores do holerite.",
+  },
+  {
+    title: "Passo 3: Entenda as diferenças.",
+    body: "Se o holerite mostra descontos maiores, provavelmente inclui vale-transporte, plano de saúde, empréstimo consignado ou contribuição sindical — itens que esta calculadora não cobre. Se o INSS ou IRRF estão diferentes, vale perguntar ao RH.",
+  },
+  {
+    title: "Passo 4: Verifique a redução do IRRF.",
+    body: "Se você ganha até R$ 5.000 e o holerite ainda mostra cobrança de IRRF, pode haver erro na aplicação da Lei 15.270/2025. Converse com o departamento pessoal.",
+  },
+] as const;
+
 export const methodologySteps = [
   {
     title: "1. Desconta o INSS por faixas",

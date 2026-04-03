@@ -86,7 +86,7 @@ export const faqItems = [
   {
     question: "Quanto desconta de INSS em 2026?",
     answer:
-      "O INSS é progressivo: 7,5% sobre a primeira faixa (até R$ 1.518), 9% na segunda, 12% na terceira e 14% na quarta (até o teto de R$ 8.475,55). O desconto total é a soma de cada faixa, não uma alíquota única sobre o bruto inteiro.",
+      "O INSS é progressivo: 7,5% sobre a primeira faixa (até R$ 1.621), 9% na segunda, 12% na terceira e 14% na quarta (até o teto de R$ 8.475,55). O desconto total é a soma de cada faixa, não uma alíquota única sobre o bruto inteiro.",
   },
   {
     question: "O que é o desconto simplificado mensal do IRRF?",

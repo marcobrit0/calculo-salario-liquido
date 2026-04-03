@@ -1,5 +1,5 @@
 import { SiteLogo } from "@/components/site-logo";
-import { heroHighlights, homeNavigationLinks } from "@/lib/home-content";
+import { homeNavigationLinks } from "@/lib/home-content";
 
 export function HeroSection() {
   return (
@@ -49,17 +49,6 @@ export function HeroSection() {
               >
                 Como funciona o cálculo
               </a>
-            </div>
-
-            <div className="grid gap-8 border-t border-white/12 pt-8 text-sm leading-6 text-zinc-300 md:grid-cols-3">
-              {heroHighlights.map((item) => (
-                <div key={item.title} className="flex animate-rise flex-col gap-2">
-                  <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
-                    {item.title}
-                  </p>
-                  <p>{item.body}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
