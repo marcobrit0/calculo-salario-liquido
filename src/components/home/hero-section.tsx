@@ -9,17 +9,25 @@ export function HeroSection() {
         <div className="pointer-events-none sticky top-6 z-20">
           <div className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/12 bg-black/30 px-4 py-3 backdrop-blur-xl md:px-6">
             <SiteLogo href="/" variant="light" />
-            <nav className="hidden items-center gap-2 md:flex">
-              {homeNavigationLinks.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+            <div className="hidden items-center gap-3 md:flex">
+              <nav className="flex items-center gap-2">
+                {homeNavigationLinks.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+              <a
+                href="#calculadora"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-white px-5 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Calcular salário
+              </a>
+            </div>
           </div>
         </div>
 

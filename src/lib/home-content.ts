@@ -3,9 +3,7 @@ import { calculateSalaryBreakdown, formatCurrency } from "@/lib/salary";
 import { faqItems, siteConfig } from "@/lib/site";
 
 export const homeNavigationLinks = [
-  { label: "Calculadora", href: "#calculadora" },
   { label: "Metodologia", href: "#metodologia" },
-  { label: "Guia", href: "#guia" },
   { label: "FAQ", href: "#faq" },
 ] as const;
 
