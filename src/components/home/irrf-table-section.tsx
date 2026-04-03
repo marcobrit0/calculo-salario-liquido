@@ -1,5 +1,6 @@
 import { irrfTableRows } from "@/lib/home-content";
 
+import { AnimatedColumnChart } from "@/components/home/animated-column-chart";
 import { SectionHeading } from "@/components/home/section-heading";
 
 export function IrrfTableSection() {
@@ -62,26 +63,29 @@ export function IrrfTableSection() {
           />
 
           <div className="rounded-[1.75rem] border border-black/8 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.06))] p-6">
-            <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-              Dedução em foco
-            </p>
-            <div className="mt-6 flex items-end gap-3">
-              {irrfTableRows.map((item, index) => (
-                <div
-                  key={item.taxBase}
-                  className="flex flex-1 animate-rise flex-col items-center gap-3"
-                  style={{ animationDelay: `${index * 70}ms` }}
-                >
-                  <div
-                    className="w-full rounded-t-[1.5rem] bg-neutral-950"
-                    style={{ height: `${68 + index * 20}px` }}
-                  />
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground">
-                    {item.rate}
-                  </span>
-                </div>
-              ))}
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                Dedução em foco
+              </p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Passe o mouse nas barras
+              </p>
             </div>
+            <AnimatedColumnChart
+              chartHeightClassName="h-48"
+              items={irrfTableRows.map((item, index) => ({
+                label: item.taxBase,
+                value: item.rateValue,
+                valueLabel: item.rate,
+                note: item.deduction === "—" ? "Sem dedução" : `Dedução ${item.deduction}`,
+                detail:
+                  item.deduction === "—"
+                    ? "Faixa isenta na tabela mensal do IRRF."
+                    : `Parcela a deduzir desta faixa: ${item.deduction}.`,
+                tone: index > 2 ? "dark" : index > 0 ? "mid" : "light",
+              }))}
+              labelClassName="text-[10px]"
+            />
             <div className="mt-6 inline-flex rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-foreground shadow-sm">
               R$ 607,20/mês
             </div>

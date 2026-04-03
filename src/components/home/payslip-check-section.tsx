@@ -32,7 +32,7 @@ export function PayslipCheckSection() {
           {payslipCheckSteps.map((item, index) => (
             <article
               key={item.title}
-              className="animate-rise rounded-[1.75rem] border border-black/8 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)]"
+              className="animate-rise rounded-[1.75rem] border border-black/8 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)]"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               <p className="text-base leading-7 text-muted-foreground">

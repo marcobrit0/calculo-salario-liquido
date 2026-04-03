@@ -1,8 +1,7 @@
 import { inssTableRows } from "@/lib/home-content";
 
+import { AnimatedColumnChart } from "@/components/home/animated-column-chart";
 import { SectionHeading } from "@/components/home/section-heading";
-
-const barHeights = ["h-24", "h-32", "h-40", "h-48"] as const;
 
 export function InssTableSection() {
   return (
@@ -18,25 +17,24 @@ export function InssTableSection() {
           />
 
           <div className="rounded-[1.75rem] border border-black/8 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.06))] p-6">
-            <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-              Leitura visual
-            </p>
-            <div className="mt-8 flex items-end gap-3">
-              {inssTableRows.map((item, index) => (
-                <div
-                  key={item.salaryRange}
-                  className="flex flex-1 animate-rise flex-col items-center gap-3"
-                  style={{ animationDelay: `${index * 70}ms` }}
-                >
-                  <div
-                    className={`w-full rounded-t-[1.5rem] bg-neutral-950 ${barHeights[index]}`}
-                  />
-                  <span className="font-mono text-xs tracking-[0.22em] text-muted-foreground">
-                    {item.rate}
-                  </span>
-                </div>
-              ))}
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                Leitura visual
+              </p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Passe o mouse nas barras
+              </p>
             </div>
+            <AnimatedColumnChart
+              items={inssTableRows.map((item, index) => ({
+                label: item.salaryRange,
+                value: item.rateValue,
+                valueLabel: item.rate,
+                note: `Faixa ${index + 1}`,
+                detail: `Alíquota aplicada sobre esta parte do salário: ${item.rate}.`,
+                tone: index === inssTableRows.length - 1 ? "dark" : index > 1 ? "mid" : "light",
+              }))}
+            />
           </div>
         </div>
 

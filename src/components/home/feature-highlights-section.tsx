@@ -8,7 +8,7 @@ export function FeatureHighlightsSection() {
           {heroHighlights.map((item, index) => (
             <article
               key={item.title}
-              className="animate-rise rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm"
+              className="animate-rise rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/[0.05] hover:shadow-[0_18px_40px_rgba(0,0,0,0.18)]"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="mb-5 flex items-center justify-between">
@@ -16,8 +16,8 @@ export function FeatureHighlightsSection() {
                   {item.title}
                 </p>
                 <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/50" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/50 transition-transform duration-300 hover:scale-125" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/20 transition-transform duration-300 hover:scale-125" />
                 </div>
               </div>
               <p className="text-sm leading-6 text-zinc-300">{item.body}</p>

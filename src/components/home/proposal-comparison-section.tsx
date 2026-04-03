@@ -1,3 +1,6 @@
+import { proposalComparisonMetrics } from "@/lib/home-content";
+
+import { AnimatedComparisonBars } from "@/components/home/animated-comparison-bars";
 import { SectionHeading } from "@/components/home/section-heading";
 
 export function ProposalComparisonSection() {
@@ -14,20 +17,18 @@ export function ProposalComparisonSection() {
           />
 
           <div className="rounded-[1.75rem] border border-black/8 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.06))] p-6">
-            <div className="flex items-end gap-4">
-              <div className="flex flex-1 flex-col items-center gap-3">
-                <div className="h-32 w-full rounded-t-[1.5rem] bg-neutral-700" />
-                <span className="font-mono text-xs tracking-[0.22em] text-muted-foreground">
-                  R$ 7.000
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col items-center gap-3">
-                <div className="h-44 w-full rounded-t-[1.5rem] bg-neutral-950" />
-                <span className="font-mono text-xs tracking-[0.22em] text-muted-foreground">
-                  R$ 8.500
-                </span>
-              </div>
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                Cenários lado a lado
+              </p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Passe o mouse nas barras
+              </p>
             </div>
+            <AnimatedComparisonBars
+              items={proposalComparisonMetrics}
+              itemClassName="bg-white/60"
+            />
           </div>
         </div>
 

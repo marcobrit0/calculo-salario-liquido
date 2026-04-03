@@ -19,7 +19,7 @@ export function ExamplesSection() {
           {exampleResults.map((item) => (
             <article
               key={item.title}
-              className="grid gap-5 px-6 py-6 md:grid-cols-[1fr_auto] md:px-8"
+              className="group grid gap-5 px-6 py-6 transition-colors duration-300 hover:bg-neutral-50 md:grid-cols-[1fr_auto] md:px-8"
             >
               <div className="flex flex-col gap-2">
                 <h3 className="font-medium text-foreground">{item.title}</h3>
@@ -29,14 +29,14 @@ export function ExamplesSection() {
                 <div className="pt-2">
                   <a
                     href={item.href}
-                    className="inline-flex h-10 items-center justify-center rounded-full border border-border px-4 text-sm font-medium text-foreground transition-colors hover:bg-neutral-100"
+                    className="inline-flex h-10 items-center justify-center rounded-full border border-border px-4 text-sm font-medium text-foreground transition duration-300 hover:-translate-y-0.5 hover:bg-neutral-100"
                   >
                     Ajustar no simulador
                   </a>
                 </div>
               </div>
 
-              <div className="grid gap-2 text-sm leading-6 text-foreground md:min-w-64">
+              <div className="grid gap-2 text-sm leading-6 text-foreground transition-transform duration-300 group-hover:translate-x-1 md:min-w-64">
                 <div className="flex items-center justify-between gap-4">
                   <span>Líquido estimado</span>
                   <strong>{formatCurrency(item.result.netSalary)}</strong>

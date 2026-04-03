@@ -1,5 +1,6 @@
-import { grossVsNetBlocks } from "@/lib/home-content";
+import { grossVsNetBlocks, grossVsNetMetrics } from "@/lib/home-content";
 
+import { AnimatedComparisonBars } from "@/components/home/animated-comparison-bars";
 import { SectionHeading } from "@/components/home/section-heading";
 
 export function GrossVsNetSection() {
@@ -49,26 +50,15 @@ export function GrossVsNetSection() {
                 </div>
 
                 <div className="rounded-[1.5rem] border border-black/8 bg-white p-5">
-                  <div className="space-y-4">
-                    <div>
-                      <div className="mb-2 flex items-center justify-between text-sm text-muted-foreground">
-                        <span>R$ 5.000 bruto</span>
-                        <span>R$ 4.498,49 líquido</span>
-                      </div>
-                      <div className="h-3 rounded-full bg-black/8">
-                        <div className="h-3 w-[90%] rounded-full bg-neutral-950" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="mb-2 flex items-center justify-between text-sm text-muted-foreground">
-                        <span>R$ 10.000 bruto</span>
-                        <span>R$ 7.442,36 líquido</span>
-                      </div>
-                      <div className="h-3 rounded-full bg-black/8">
-                        <div className="h-3 w-[74%] rounded-full bg-neutral-700" />
-                      </div>
-                    </div>
+                  <div className="mb-4 flex items-center justify-between gap-4">
+                    <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                      Leitura comparativa
+                    </p>
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                      Passe o mouse nas barras
+                    </p>
                   </div>
+                  <AnimatedComparisonBars items={grossVsNetMetrics} itemClassName="bg-transparent p-0 shadow-none hover:shadow-none border-0" />
                 </div>
               </div>
             </div>

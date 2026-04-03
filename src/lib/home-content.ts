@@ -1,5 +1,5 @@
 import { buildCalculatorHref } from "@/lib/calculator-query";
-import { calculateSalaryBreakdown } from "@/lib/salary";
+import { calculateSalaryBreakdown, formatCurrency } from "@/lib/salary";
 import { faqItems, siteConfig } from "@/lib/site";
 
 export const homeNavigationLinks = [
@@ -40,18 +40,18 @@ export const heroHighlights = [
 ] as const;
 
 export const inssTableRows = [
-  { salaryRange: "Até R$ 1.621,00", rate: "7,5%" },
-  { salaryRange: "De R$ 1.621,01 a R$ 2.902,84", rate: "9%" },
-  { salaryRange: "De R$ 2.902,85 a R$ 4.354,27", rate: "12%" },
-  { salaryRange: "De R$ 4.354,28 a R$ 8.475,55", rate: "14%" },
+  { salaryRange: "Até R$ 1.621,00", rate: "7,5%", rateValue: 7.5 },
+  { salaryRange: "De R$ 1.621,01 a R$ 2.902,84", rate: "9%", rateValue: 9 },
+  { salaryRange: "De R$ 2.902,85 a R$ 4.354,27", rate: "12%", rateValue: 12 },
+  { salaryRange: "De R$ 4.354,28 a R$ 8.475,55", rate: "14%", rateValue: 14 },
 ] as const;
 
 export const irrfTableRows = [
-  { taxBase: "Até R$ 2.428,80", rate: "Isento", deduction: "—" },
-  { taxBase: "De R$ 2.428,81 a R$ 2.826,65", rate: "7,5%", deduction: "R$ 182,16" },
-  { taxBase: "De R$ 2.826,66 a R$ 3.751,05", rate: "15%", deduction: "R$ 394,16" },
-  { taxBase: "De R$ 3.751,06 a R$ 4.664,68", rate: "22,5%", deduction: "R$ 675,49" },
-  { taxBase: "Acima de R$ 4.664,68", rate: "27,5%", deduction: "R$ 908,73" },
+  { taxBase: "Até R$ 2.428,80", rate: "Isento", deduction: "—", rateValue: 0 },
+  { taxBase: "De R$ 2.428,81 a R$ 2.826,65", rate: "7,5%", deduction: "R$ 182,16", rateValue: 7.5 },
+  { taxBase: "De R$ 2.826,66 a R$ 3.751,05", rate: "15%", deduction: "R$ 394,16", rateValue: 15 },
+  { taxBase: "De R$ 3.751,06 a R$ 4.664,68", rate: "22,5%", deduction: "R$ 675,49", rateValue: 22.5 },
+  { taxBase: "Acima de R$ 4.664,68", rate: "27,5%", deduction: "R$ 908,73", rateValue: 27.5 },
 ] as const;
 
 export const lawChangeBlocks = [
@@ -184,6 +184,50 @@ export const practicalMoments = [
     body: "Saber o líquido previsível é o primeiro passo para organizar gastos fixos, investimentos e reserva.",
   },
 ] as const;
+
+const grossVsNetSamples = [
+  { grossSalary: 5000, label: "R$ 5.000 bruto", accent: "dark" as const },
+  { grossSalary: 10000, label: "R$ 10.000 bruto", accent: "mid" as const },
+] as const;
+
+export const grossVsNetMetrics = grossVsNetSamples.map((item) => {
+  const result = calculateSalaryBreakdown({
+    mode: "gross-to-net",
+    amount: item.grossSalary,
+    dependents: 0,
+    pension: 0,
+  });
+
+  return {
+    label: item.label,
+    value: result.netSalary,
+    valueLabel: `${formatCurrency(result.netSalary)} líquido`,
+    detail: `Desconto total de ${formatCurrency(item.grossSalary - result.netSalary)} · INSS ${formatCurrency(result.inss)} · IRRF ${formatCurrency(result.irrf)}`,
+    accent: item.accent,
+  };
+});
+
+const proposalComparisonSamples = [
+  { grossSalary: 7000, label: "R$ 7.000", accent: "mid" as const },
+  { grossSalary: 8500, label: "R$ 8.500", accent: "dark" as const },
+] as const;
+
+export const proposalComparisonMetrics = proposalComparisonSamples.map((item) => {
+  const result = calculateSalaryBreakdown({
+    mode: "gross-to-net",
+    amount: item.grossSalary,
+    dependents: 0,
+    pension: 0,
+  });
+
+  return {
+    label: `${item.label} bruto`,
+    value: result.netSalary,
+    valueLabel: `${formatCurrency(result.netSalary)} líquido`,
+    detail: `INSS ${formatCurrency(result.inss)} · IRRF ${formatCurrency(result.irrf)} · Diferença total ${formatCurrency(item.grossSalary - result.netSalary)}`,
+    accent: item.accent,
+  };
+});
 
 const homeExamples = [
   {

@@ -18,7 +18,7 @@ export function PracticalMomentsSection() {
           {practicalMoments.map((item) => (
             <article
               key={item.title}
-              className="border-t border-border pt-5 first:pt-0 md:first:border-t"
+              className="-mx-4 rounded-[1.25rem] border-t border-transparent px-4 py-5 transition duration-300 hover:-translate-y-0.5 hover:border-border hover:bg-white/70 first:border-transparent md:first:border-t"
             >
               <h3 className="text-lg font-medium text-foreground">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.body}</p>
