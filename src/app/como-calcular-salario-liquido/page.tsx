@@ -382,16 +382,16 @@ export default function ComoCalcularSalarioLiquidoPage() {
         </h3>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          Sem dependentes nem pensão, o desconto simplificado (R$ 607,20) é
-          maior que as deduções legais (INSS de R$ 641,51, sem dependentes nem
-          pensão — mas a comparação relevante é entre a dedução total e o
-          simplificado aplicado sobre o bruto menos INSS).
+          Sem dependentes nem pensão, as deduções legais se resumem ao INSS:
+          R$ 641,51. Como esse valor supera o desconto simplificado (R$ 607,20),
+          o sistema aplica as deduções legais, que resultam em uma base menor e
+          menos imposto.
         </p>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          Base IRRF com desconto simplificado:{" "}
+          Base IRRF com deduções legais:{" "}
           <code className="rounded bg-muted px-2 py-1 text-sm font-mono">
-            R$ 6.000 − R$ 607,20 = R$ 5.392,80
+            R$ 6.000 − R$ 641,51 = R$ 5.358,49
           </code>
         </p>
 
@@ -400,9 +400,9 @@ export default function ComoCalcularSalarioLiquidoPage() {
         </h3>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          A base de R$ 5.392,80 cai na faixa de 27,5%:{" "}
+          A base de R$ 5.358,49 cai na faixa de 27,5%:{" "}
           <code className="rounded bg-muted px-2 py-1 text-sm font-mono">
-            (R$ 5.392,80 × 27,5%) − R$ 908,73 = R$ 574,24
+            (R$ 5.358,49 × 27,5%) − R$ 908,73 = R$ 564,85
           </code>
         </p>
 
@@ -414,14 +414,14 @@ export default function ComoCalcularSalarioLiquidoPage() {
           O bruto de R$ 6.000 está entre R$ 5.000 e R$ 7.350, então a redução é
           parcial:{" "}
           <code className="rounded bg-muted px-2 py-1 text-sm font-mono">
-            Redução = R$ 978,62 − (0,133145 × R$ 6.000) ≈ R$ 179,75
+            Redução = R$ 978,62 − (0,133145 × R$ 6.000) = R$ 179,75
           </code>
         </p>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
           <strong className="text-foreground">IRRF final:</strong>{" "}
           <code className="rounded bg-muted px-2 py-1 text-sm font-mono">
-            R$ 574,24 − R$ 179,75 ≈ R$ 394,49
+            R$ 564,85 − R$ 179,75 = R$ 385,10
           </code>
         </p>
 
@@ -431,7 +431,7 @@ export default function ComoCalcularSalarioLiquidoPage() {
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
           <code className="rounded bg-muted px-2 py-1 text-sm font-mono">
-            Líquido = R$ 6.000 − R$ 641,51 − R$ 394,49 ≈ R$ 4.964,00
+            Líquido = R$ 6.000 − R$ 641,51 − R$ 385,10 = R$ 4.973,39
           </code>
         </p>
 

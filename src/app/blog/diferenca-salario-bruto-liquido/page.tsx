@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { createPageMetadata } from "@/lib/seo";
 import {
+  BlogArticleHeader,
   ContentPage,
   ContentHero,
   ContentBody,
@@ -46,12 +47,7 @@ const jsonLd = {
 
 export default function DiferencaSalarioBrutoLiquidoPage() {
   return (
-    <ContentPage>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
+    <ContentPage jsonLd={jsonLd}>
       <ContentHero
         eyebrow="Guia CLT"
         title="Diferença Entre Salário Bruto e Líquido: Entenda de Uma Vez"
@@ -59,6 +55,12 @@ export default function DiferencaSalarioBrutoLiquidoPage() {
       />
 
       <ContentBody>
+        <BlogArticleHeader
+          breadcrumbLabel="Bruto vs Líquido"
+          date="4 de abril de 2026"
+          readingTime="7 min de leitura"
+        />
+
         {/* O que é salário bruto */}
         <h2 className="mt-16 font-display text-2xl tracking-[-0.03em] text-foreground md:text-3xl">
           O que é salário bruto
@@ -180,10 +182,10 @@ export default function DiferencaSalarioBrutoLiquidoPage() {
             <tbody className="divide-y divide-border">
               <tr>
                 <td className="px-4 py-3 text-left">R$&nbsp;2.000</td>
-                <td className="px-4 py-3 text-right">R$&nbsp;155,67</td>
+                <td className="px-4 py-3 text-right">R$&nbsp;155,69</td>
                 <td className="px-4 py-3 text-right">R$&nbsp;0,00</td>
                 <td className="px-4 py-3 text-right font-medium text-foreground">
-                  R$&nbsp;1.844,33
+                  R$&nbsp;1.844,31
                 </td>
                 <td className="px-4 py-3 text-right">7,8%</td>
               </tr>
@@ -208,20 +210,20 @@ export default function DiferencaSalarioBrutoLiquidoPage() {
               <tr>
                 <td className="px-4 py-3 text-left">R$&nbsp;8.000</td>
                 <td className="px-4 py-3 text-right">R$&nbsp;921,51</td>
-                <td className="px-4 py-3 text-right">R$&nbsp;985,72</td>
+                <td className="px-4 py-3 text-right">R$&nbsp;1.037,85</td>
                 <td className="px-4 py-3 text-right font-medium text-foreground">
-                  R$&nbsp;6.092,77
+                  R$&nbsp;6.040,64
                 </td>
-                <td className="px-4 py-3 text-right">23,8%</td>
+                <td className="px-4 py-3 text-right">24,5%</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-left">R$&nbsp;12.000</td>
                 <td className="px-4 py-3 text-right">R$&nbsp;988,09</td>
-                <td className="px-4 py-3 text-right">R$&nbsp;1.931,97</td>
+                <td className="px-4 py-3 text-right">R$&nbsp;2.119,55</td>
                 <td className="px-4 py-3 text-right font-medium text-foreground">
-                  R$&nbsp;9.079,94
+                  R$&nbsp;8.892,36
                 </td>
-                <td className="px-4 py-3 text-right">24,3%</td>
+                <td className="px-4 py-3 text-right">25,9%</td>
               </tr>
             </tbody>
           </table>

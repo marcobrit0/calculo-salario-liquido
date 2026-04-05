@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { SiteLogo } from "@/components/site-logo";
-import { homeNavigationLinks, siteNavigationLinks } from "@/lib/home-content";
+import { siteNavigationLinks } from "@/lib/home-content";
 
 export function HeroSection() {
   return (
@@ -21,15 +21,6 @@ export function HeroSection() {
                   >
                     {item.label}
                   </Link>
-                ))}
-                {homeNavigationLinks.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
-                  >
-                    {item.label}
-                  </a>
                 ))}
               </nav>
               <a

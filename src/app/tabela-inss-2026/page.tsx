@@ -11,9 +11,9 @@ import {
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Tabela INSS 2026: Faixas, Aliquotas e Como Calcular o Desconto",
+  title: "Tabela INSS 2026: Faixas, Alíquotas e Como Calcular o Desconto",
   description:
-    "Tabela do INSS 2026 atualizada com as 4 faixas progressivas (7,5% a 14%), teto de R$ 8.475,55 e exemplos de calculo. Veja quanto desconta do seu salario.",
+    "Tabela do INSS 2026 atualizada com as 4 faixas progressivas (7,5% a 14%), teto de R$ 8.475,55 e exemplos de cálculo. Veja quanto desconta do seu salário.",
   pathname: "/tabela-inss-2026",
   openGraphType: "article",
 });
@@ -24,21 +24,21 @@ const jsonLd = {
     {
       "@type": "Article",
       headline:
-        "Tabela do INSS 2026: Faixas, Aliquotas e Como Calcular",
+        "Tabela do INSS 2026: Faixas, Alíquotas e Como Calcular",
       description:
-        "Tabela do INSS 2026 atualizada com as 4 faixas progressivas, teto e exemplos de calculo.",
+        "Tabela do INSS 2026 atualizada com as 4 faixas progressivas, teto e exemplos de cálculo.",
       url: "https://calculo-salario-liquido.vercel.app/tabela-inss-2026",
       inLanguage: "pt-BR",
       datePublished: "2026-01-15",
       dateModified: "2026-04-04",
       author: {
         "@type": "Organization",
-        name: "Salario Liquido",
+        name: "Salário Líquido",
         url: "https://calculo-salario-liquido.vercel.app",
       },
       publisher: {
         "@type": "Organization",
-        name: "Salario Liquido",
+        name: "Salário Líquido",
       },
       mainEntityOfPage: {
         "@type": "WebPage",

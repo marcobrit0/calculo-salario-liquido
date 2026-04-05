@@ -157,6 +157,39 @@ export function ContentCTA() {
   );
 }
 
+type BlogArticleHeaderProps = {
+  breadcrumbLabel: string;
+  date: string;
+  readingTime: string;
+};
+
+export function BlogArticleHeader({
+  breadcrumbLabel,
+  date,
+  readingTime,
+}: BlogArticleHeaderProps) {
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+      <nav className="flex items-center gap-1.5">
+        <Link
+          href="/blog"
+          className="underline underline-offset-4 transition-colors hover:text-foreground"
+        >
+          Blog
+        </Link>
+        <span className="text-border">/</span>
+        <span className="text-foreground">{breadcrumbLabel}</span>
+      </nav>
+      <span className="text-border">·</span>
+      <span>Equipe Salário Líquido</span>
+      <span className="text-border">·</span>
+      <time>{date}</time>
+      <span className="text-border">·</span>
+      <span>{readingTime}</span>
+    </div>
+  );
+}
+
 type ContentRelatedLinksProps = {
   links: ReadonlyArray<{ label: string; href: string }>;
 };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { createPageMetadata } from "@/lib/seo";
 import {
+  BlogArticleHeader,
   ContentPage,
   ContentHero,
   ContentBody,
@@ -54,6 +55,12 @@ export default function IsencaoImpostoRenda2026() {
       />
 
       <ContentBody>
+        <BlogArticleHeader
+          breadcrumbLabel="Isenção IR 2026"
+          date="4 de abril de 2026"
+          readingTime="6 min de leitura"
+        />
+
         {/* O que a Lei 15.270/2025 mudou */}
         <h2 className="font-display text-2xl tracking-[-0.03em] text-foreground md:text-3xl mt-16">
           O que a Lei 15.270/2025 mudou

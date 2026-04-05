@@ -388,33 +388,29 @@ export default function TabelaIrrfPage() {
                 <td className="px-4 py-3 text-right">- R$ 781,51</td>
               </tr>
               <tr>
-                <td className="px-4 py-3">Bruto - INSS</td>
-                <td className="px-4 py-3 text-right">R$ 6.218,49</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3">Desconto simplificado</td>
-                <td className="px-4 py-3 text-right">- R$ 607,20</td>
+                <td className="px-4 py-3">Dedução aplicada (deduções legais)</td>
+                <td className="px-4 py-3 text-right">R$ 781,51</td>
               </tr>
               <tr>
                 <td className="px-4 py-3">Base IRRF</td>
-                <td className="px-4 py-3 text-right">R$ 5.611,29</td>
+                <td className="px-4 py-3 text-right">R$ 6.218,49</td>
               </tr>
               <tr>
-                <td className="px-4 py-3">IRRF tabela</td>
-                <td className="px-4 py-3 text-right">R$ 634,38</td>
+                <td className="px-4 py-3">IRRF tabela (27,5%)</td>
+                <td className="px-4 py-3 text-right">R$ 801,35</td>
               </tr>
               <tr>
                 <td className="px-4 py-3">Redução Lei 15.270/2025</td>
-                <td className="px-4 py-3 text-right">Parcial</td>
+                <td className="px-4 py-3 text-right">- R$ 46,60</td>
               </tr>
               <tr>
-                <td className="px-4 py-3">IRRF final estimado</td>
-                <td className="px-4 py-3 text-right">~R$ 515</td>
+                <td className="px-4 py-3">IRRF final</td>
+                <td className="px-4 py-3 text-right">R$ 754,75</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium">Salário líquido</td>
                 <td className="px-4 py-3 text-right font-medium">
-                  ~R$ 5.703,49
+                  R$ 5.463,74
                 </td>
               </tr>
             </tbody>
@@ -422,8 +418,10 @@ export default function TabelaIrrfPage() {
         </div>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          Os valores com &ldquo;~&rdquo; são estimativas. Para um resultado
-          exato, use a{" "}
+          Neste exemplo, as deduções legais (INSS de R$ 781,51) superam o
+          desconto simplificado (R$ 607,20), então o sistema aplica as deduções
+          legais para reduzir a base tributável. Para conferir com outros
+          valores, use a{" "}
           <Link
             href="/#calculadora"
             className="underline underline-offset-4 transition-colors hover:text-foreground"

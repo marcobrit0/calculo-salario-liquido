@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import {
+  BlogArticleHeader,
   ContentBody,
   ContentCTA,
   ContentHero,
@@ -55,6 +56,12 @@ export default function DescontosSalarioCltPage() {
       />
 
       <ContentBody>
+        <BlogArticleHeader
+          breadcrumbLabel="Descontos CLT"
+          date="4 de abril de 2026"
+          readingTime="8 min de leitura"
+        />
+
         {/* ---------- Descontos obrigatórios ---------- */}
 
         <h2 className="font-display text-2xl tracking-[-0.03em] text-foreground md:text-3xl">
