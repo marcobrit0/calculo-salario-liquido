@@ -228,8 +228,8 @@ export default function IsencaoImpostoRenda2026() {
             aplicada automaticamente
           </strong>{" "}
           pela fonte pagadora no momento do cálculo da folha de pagamento.
-          O trabalhador não precisa fazer nenhuma solicitação, cadastro ou
-          declaração para ter direito ao benefício.
+          O trabalhador não precisa solicitar nada — nem cadastro nem
+          declaração — para ter direito ao benefício.
         </p>
         <p className="mt-4 text-base leading-7 text-muted-foreground">
           Os sistemas de folha de pagamento e o eSocial já incorporam o

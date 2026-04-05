@@ -24,14 +24,14 @@ const posts = [
     title: "Diferença Entre Salário Bruto e Líquido: Entenda de Uma Vez",
     description:
       "Salário bruto vs líquido: entenda a diferença, quais descontos existem e veja uma tabela com 5 faixas salariais para comparar. Atualizado 2026.",
-    date: "4 de abril de 2026",
+    date: "28 de março de 2026",
   },
   {
     href: "/blog/descontos-salario-clt",
     title: "Quais São os Descontos no Salário CLT? Lista Completa 2026",
     description:
       "Todos os descontos que podem aparecer no seu holerite CLT: INSS, IRRF, vale-transporte, pensão, plano de saúde, consignado e mais.",
-    date: "4 de abril de 2026",
+    date: "21 de março de 2026",
   },
 ] as const;
 

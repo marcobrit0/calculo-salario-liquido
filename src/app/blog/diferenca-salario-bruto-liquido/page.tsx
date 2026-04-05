@@ -27,8 +27,8 @@ const jsonLd = {
     "Salário bruto vs líquido: entenda a diferença, quais descontos existem e veja uma tabela comparativa.",
   url: "https://calculo-salario-liquido.vercel.app/blog/diferenca-salario-bruto-liquido",
   inLanguage: "pt-BR",
-  datePublished: "2026-04-04",
-  dateModified: "2026-04-04",
+  datePublished: "2026-03-28",
+  dateModified: "2026-03-28",
   author: {
     "@type": "Organization",
     name: "Salário Líquido",
@@ -57,7 +57,7 @@ export default function DiferencaSalarioBrutoLiquidoPage() {
       <ContentBody>
         <BlogArticleHeader
           breadcrumbLabel="Bruto vs Líquido"
-          date="4 de abril de 2026"
+          date="28 de março de 2026"
           readingTime="7 min de leitura"
         />
 

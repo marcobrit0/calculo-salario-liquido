@@ -72,13 +72,31 @@ export function SiteFooter() {
                 key={item.href}
                 href={item.href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="transition-colors hover:text-white"
               >
                 {item.label}
               </a>
             ))}
           </div>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10 lg:px-16">
+          <p className="text-xs text-zinc-500">
+            © {new Date().getFullYear()} Salário Líquido
+          </p>
+          <p className="text-xs text-zinc-500">
+            Feito por{" "}
+            <a
+              href="https://madeofai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 transition-colors hover:text-zinc-300"
+            >
+              MadeofIA
+            </a>
+          </p>
         </div>
       </div>
     </footer>

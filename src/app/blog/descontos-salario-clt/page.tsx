@@ -29,8 +29,8 @@ const jsonLd = {
     "Todos os descontos no holerite CLT: INSS, IRRF, vale-transporte, pensão, plano de saúde, consignado e mais.",
   url: "https://calculo-salario-liquido.vercel.app/blog/descontos-salario-clt",
   inLanguage: "pt-BR",
-  datePublished: "2026-04-04",
-  dateModified: "2026-04-04",
+  datePublished: "2026-03-21",
+  dateModified: "2026-03-21",
   author: {
     "@type": "Organization",
     name: "Salário Líquido",
@@ -58,7 +58,7 @@ export default function DescontosSalarioCltPage() {
       <ContentBody>
         <BlogArticleHeader
           breadcrumbLabel="Descontos CLT"
-          date="4 de abril de 2026"
+          date="21 de março de 2026"
           readingTime="8 min de leitura"
         />
 
