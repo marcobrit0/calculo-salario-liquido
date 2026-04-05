@@ -1,5 +1,6 @@
 import { SiteFooter } from "@/components/site-footer";
 import { CalculatorSection } from "@/components/home/calculator-section";
+import { ContentLinksSection } from "@/components/home/content-links-section";
 import { ExamplesSection } from "@/components/home/examples-section";
 import { FaqSection } from "@/components/home/faq-section";
 import { FeatureHighlightsSection } from "@/components/home/feature-highlights-section";
@@ -41,6 +42,7 @@ export function HomePage() {
         <PayslipCheckSection />
         <ProposalComparisonSection />
         <PracticalMomentsSection />
+        <ContentLinksSection />
         <SourcesSection />
         <FaqSection />
       </main>

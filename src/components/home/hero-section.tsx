@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 import { SiteLogo } from "@/components/site-logo";
-import { homeNavigationLinks } from "@/lib/home-content";
+import { homeNavigationLinks, siteNavigationLinks } from "@/lib/home-content";
 
 export function HeroSection() {
   return (
@@ -11,6 +13,15 @@ export function HeroSection() {
             <SiteLogo href="/" variant="light" />
             <div className="hidden items-center gap-3 md:flex">
               <nav className="flex items-center gap-2">
+                {siteNavigationLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
                 {homeNavigationLinks.map((item) => (
                   <a
                     key={item.href}

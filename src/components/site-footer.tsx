@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { SiteLogo } from "@/components/site-logo";
-import { homeNavigationLinks, officialSourceLinks } from "@/lib/home-content";
+import { homeNavigationLinks, officialSourceLinks, siteNavigationLinks } from "@/lib/home-content";
 
 const legalLinks = [
   { label: "Privacidade", href: "/privacidade" },
@@ -30,6 +30,15 @@ export function SiteFooter() {
             Navegação
           </h2>
           <nav className="flex flex-col gap-3 text-sm text-zinc-300">
+            {siteNavigationLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition-colors hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
             {homeNavigationLinks.map((item) => (
               <Link
                 key={item.href}

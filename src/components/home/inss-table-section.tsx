@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { inssTableRows } from "@/lib/home-content";
 
 import { AnimatedColumnChart } from "@/components/home/animated-column-chart";
@@ -76,6 +78,12 @@ export function InssTableSection() {
               5.000, paga 14% de INSS. Na verdade, o desconto efetivo fica em torno de
               10%. A calculadora acima já faz essa conta por faixas.
             </p>
+            <Link
+              href="/tabela-inss-2026"
+              className="mt-4 inline-flex text-sm font-medium text-foreground underline underline-offset-4 transition-colors hover:text-muted-foreground"
+            >
+              Ver tabela completa, exemplos e FAQ do INSS 2026 →
+            </Link>
           </div>
         </div>
       </div>

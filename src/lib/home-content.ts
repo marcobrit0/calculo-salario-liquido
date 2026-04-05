@@ -7,6 +7,13 @@ export const homeNavigationLinks = [
   { label: "FAQ", href: "#faq" },
 ] as const;
 
+export const siteNavigationLinks = [
+  { label: "Tabela INSS 2026", href: "/tabela-inss-2026" },
+  { label: "Tabela IRRF 2026", href: "/tabela-irrf-2026" },
+  { label: "Como calcular", href: "/como-calcular-salario-liquido" },
+  { label: "Blog", href: "/blog" },
+] as const;
+
 export const officialSourceLinks = [
   {
     label: "Receita Federal: tabelas de tributação de 2026",

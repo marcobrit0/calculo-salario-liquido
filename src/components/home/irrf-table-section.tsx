@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { irrfTableRows } from "@/lib/home-content";
 
 import { AnimatedColumnChart } from "@/components/home/animated-column-chart";
@@ -50,6 +52,12 @@ export function IrrfTableSection() {
               a ser melhor. Com dependentes (R$ 189,59 cada) ou pensão judicial, as
               deduções legais podem compensar. A calculadora testa os dois.
             </p>
+            <Link
+              href="/tabela-irrf-2026"
+              className="mt-4 inline-flex text-sm font-medium text-foreground underline underline-offset-4 transition-colors hover:text-muted-foreground"
+            >
+              Ver tabela completa, exemplos e FAQ do IRRF 2026 →
+            </Link>
           </div>
         </div>
 

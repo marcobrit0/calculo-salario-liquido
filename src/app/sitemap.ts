@@ -12,6 +12,10 @@ function getPriority(route: string) {
     return 0.4;
   }
 
+  if (route.startsWith("/blog")) {
+    return 0.6;
+  }
+
   return 0.8;
 }
 
