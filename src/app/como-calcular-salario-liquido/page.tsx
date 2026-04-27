@@ -27,7 +27,7 @@ const jsonLd = {
       name: "Como Calcular o Salário Líquido CLT em 2026",
       description:
         "Passo a passo para calcular o salário líquido CLT com INSS, IRRF e Lei 15.270/2025.",
-      url: "https://calculo-salario-liquido.vercel.app/como-calcular-salario-liquido",
+      url: "https://calcularsalarioliquido.com.br/como-calcular-salario-liquido",
       inLanguage: "pt-BR",
       step: [
         {

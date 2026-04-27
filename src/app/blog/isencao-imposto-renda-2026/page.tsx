@@ -26,14 +26,14 @@ const jsonLd = {
     "Isenção de Imposto de Renda 2026: Quem Ganha Até R$ 5.000 Não Paga IR",
   description:
     "A Lei 15.270/2025 zerou o imposto de renda para quem ganha até R$ 5.000/mês.",
-  url: "https://calculo-salario-liquido.vercel.app/blog/isencao-imposto-renda-2026",
+  url: "https://calcularsalarioliquido.com.br/blog/isencao-imposto-renda-2026",
   inLanguage: "pt-BR",
   datePublished: "2026-04-04",
   dateModified: "2026-04-04",
   author: {
     "@type": "Organization",
     name: "Salário Líquido",
-    url: "https://calculo-salario-liquido.vercel.app",
+    url: "https://calcularsalarioliquido.com.br",
   },
   publisher: {
     "@type": "Organization",
@@ -41,7 +41,7 @@ const jsonLd = {
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://calculo-salario-liquido.vercel.app/blog/isencao-imposto-renda-2026",
+    "@id": "https://calcularsalarioliquido.com.br/blog/isencao-imposto-renda-2026",
   },
 };
 

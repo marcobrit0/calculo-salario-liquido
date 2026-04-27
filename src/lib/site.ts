@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://calculo-salario-liquido.vercel.app";
+  "https://calcularsalarioliquido.com.br";
 
 const googleSiteVerification =
   process.env.GOOGLE_SITE_VERIFICATION ??
