@@ -27,14 +27,14 @@ const jsonLd = {
     "Quais São os Descontos no Salário CLT? Lista Completa 2026",
   description:
     "Todos os descontos no holerite CLT: INSS, IRRF, vale-transporte, pensão, plano de saúde, consignado e mais.",
-  url: "https://calculo-salario-liquido.vercel.app/blog/descontos-salario-clt",
+  url: "https://calcularsalarioliquido.com.br/blog/descontos-salario-clt",
   inLanguage: "pt-BR",
   datePublished: "2026-03-21",
   dateModified: "2026-03-21",
   author: {
     "@type": "Organization",
     name: "Salário Líquido",
-    url: "https://calculo-salario-liquido.vercel.app",
+    url: "https://calcularsalarioliquido.com.br",
   },
   publisher: {
     "@type": "Organization",
@@ -42,7 +42,7 @@ const jsonLd = {
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://calculo-salario-liquido.vercel.app/blog/descontos-salario-clt",
+    "@id": "https://calcularsalarioliquido.com.br/blog/descontos-salario-clt",
   },
 };
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import {
   ContentPage,
@@ -27,14 +26,14 @@ const jsonLd = {
         "Tabela do INSS 2026: Faixas, Alíquotas e Como Calcular",
       description:
         "Tabela do INSS 2026 atualizada com as 4 faixas progressivas, teto e exemplos de cálculo.",
-      url: "https://calculo-salario-liquido.vercel.app/tabela-inss-2026",
+      url: "https://calcularsalarioliquido.com.br/tabela-inss-2026",
       inLanguage: "pt-BR",
       datePublished: "2026-01-15",
       dateModified: "2026-04-04",
       author: {
         "@type": "Organization",
         name: "Salário Líquido",
-        url: "https://calculo-salario-liquido.vercel.app",
+        url: "https://calcularsalarioliquido.com.br",
       },
       publisher: {
         "@type": "Organization",
@@ -42,7 +41,7 @@ const jsonLd = {
       },
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://calculo-salario-liquido.vercel.app/tabela-inss-2026",
+        "@id": "https://calcularsalarioliquido.com.br/tabela-inss-2026",
       },
     },
     {

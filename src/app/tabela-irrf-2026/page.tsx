@@ -27,14 +27,14 @@ const jsonLd = {
         "Tabela IRRF 2026: Alíquotas, Faixas e Nova Isenção Até R$ 5.000",
       description:
         "Tabela do IRRF 2026 com alíquotas, parcela a deduzir e a nova isenção da Lei 15.270/2025.",
-      url: "https://calculo-salario-liquido.vercel.app/tabela-irrf-2026",
+      url: "https://calcularsalarioliquido.com.br/tabela-irrf-2026",
       inLanguage: "pt-BR",
       datePublished: "2026-01-15",
       dateModified: "2026-04-04",
       author: {
         "@type": "Organization",
         name: "Salário Líquido",
-        url: "https://calculo-salario-liquido.vercel.app",
+        url: "https://calcularsalarioliquido.com.br",
       },
       publisher: {
         "@type": "Organization",

@@ -25,14 +25,14 @@ const jsonLd = {
   headline: "Diferença Entre Salário Bruto e Líquido: Entenda de Uma Vez",
   description:
     "Salário bruto vs líquido: entenda a diferença, quais descontos existem e veja uma tabela comparativa.",
-  url: "https://calculo-salario-liquido.vercel.app/blog/diferenca-salario-bruto-liquido",
+  url: "https://calcularsalarioliquido.com.br/blog/diferenca-salario-bruto-liquido",
   inLanguage: "pt-BR",
   datePublished: "2026-03-28",
   dateModified: "2026-03-28",
   author: {
     "@type": "Organization",
     name: "Salário Líquido",
-    url: "https://calculo-salario-liquido.vercel.app",
+    url: "https://calcularsalarioliquido.com.br",
   },
   publisher: {
     "@type": "Organization",
@@ -41,7 +41,7 @@ const jsonLd = {
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id":
-      "https://calculo-salario-liquido.vercel.app/blog/diferenca-salario-bruto-liquido",
+      "https://calcularsalarioliquido.com.br/blog/diferenca-salario-bruto-liquido",
   },
 };
 
