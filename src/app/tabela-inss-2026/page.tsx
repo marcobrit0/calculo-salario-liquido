@@ -50,26 +50,26 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "O desconto do INSS \u00e9 de 14% do meu sal\u00e1rio?",
+          name: "O desconto do INSS é de 14% do meu salário?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "N\u00e3o. O INSS \u00e9 progressivo \u2014 14% s\u00f3 incide sobre a parcela do sal\u00e1rio acima de R$ 4.354,28. A al\u00edquota efetiva total \u00e9 sempre menor que 14%. Para quem ganha R$ 5.000, a al\u00edquota efetiva \u00e9 de 10,03%.",
+            text: "Não. O INSS é progressivo — 14% só incide sobre a parcela do salário acima de R$ 4.354,28. A alíquota efetiva total é sempre menor que 14%. Para quem ganha R$ 5.000, a alíquota efetiva é de 10,03%.",
           },
         },
         {
           "@type": "Question",
-          name: "Quem ganha o sal\u00e1rio m\u00ednimo paga quanto de INSS?",
+          name: "Quem ganha o salário mínimo paga quanto de INSS?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Com o m\u00ednimo de R$ 1.621 em 2026, o desconto \u00e9 de R$ 121,58 (7,5% sobre o valor total, j\u00e1 que cabe na primeira faixa).",
+            text: "Com o mínimo de R$ 1.621 em 2026, o desconto é de R$ 121,58 (7,5% sobre o valor total, já que cabe na primeira faixa).",
           },
         },
         {
           "@type": "Question",
-          name: "O INSS desconta do 13\u00ba sal\u00e1rio e das f\u00e9rias?",
+          name: "O INSS desconta do 13º salário e das férias?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sim. Tanto o 13\u00ba quanto as f\u00e9rias t\u00eam desconto de INSS, calculado separadamente do sal\u00e1rio mensal.",
+            text: "Sim. Tanto o 13º quanto as férias têm desconto de INSS, calculado separadamente do salário mensal.",
           },
         },
         {
@@ -77,7 +77,7 @@ const jsonLd = {
           name: "Quem ganha acima do teto paga mais INSS?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "N\u00e3o. O desconto m\u00e1ximo \u00e9 de R$ 988,09, independente de quanto o sal\u00e1rio ultrapasse R$ 8.475,55.",
+            text: "Não. O desconto máximo é de R$ 988,09, independente de quanto o salário ultrapasse R$ 8.475,55.",
           },
         },
         {
@@ -85,7 +85,7 @@ const jsonLd = {
           name: "O INSS mudou com a Lei 15.270/2025?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "N\u00e3o. A Lei 15.270/2025 alterou apenas o imposto de renda (IRRF). As al\u00edquotas e faixas do INSS continuam as mesmas, apenas com reajuste nos valores limites.",
+            text: "Não. A Lei 15.270/2025 alterou apenas o imposto de renda (IRRF). As alíquotas e faixas do INSS continuam as mesmas, apenas com reajuste nos valores limites.",
           },
         },
         {
@@ -93,23 +93,23 @@ const jsonLd = {
           name: "MEI paga INSS diferente?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sim. O MEI recolhe 5% do sal\u00e1rio m\u00ednimo (R$ 81,05 em 2026). A tabela progressiva se aplica apenas a empregados CLT, dom\u00e9sticos e avulsos.",
+            text: "Sim. O MEI recolhe 5% do salário mínimo (R$ 81,05 em 2026). A tabela progressiva se aplica apenas a empregados CLT, domésticos e avulsos.",
           },
         },
         {
           "@type": "Question",
-          name: "O desconto do INSS \u00e9 devolvido na declara\u00e7\u00e3o de IR?",
+          name: "O desconto do INSS é devolvido na declaração de IR?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "N\u00e3o \u00e9 devolvido, mas \u00e9 deduzido da base de c\u00e1lculo do imposto de renda. Quanto mais INSS voc\u00ea paga, menor a base para calcular o IRRF.",
+            text: "Não é devolvido, mas é deduzido da base de cálculo do imposto de renda. Quanto mais INSS você paga, menor a base para calcular o IRRF.",
           },
         },
         {
           "@type": "Question",
-          name: "Aut\u00f4nomos usam a mesma tabela?",
+          name: "Autônomos usam a mesma tabela?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Contribuintes individuais podem escolher entre 11% (simplificado) ou 20% (normal) sobre o sal\u00e1rio de contribui\u00e7\u00e3o. A tabela progressiva \u00e9 exclusiva para empregados.",
+            text: "Contribuintes individuais podem escolher entre 11% (simplificado) ou 20% (normal) sobre o salário de contribuição. A tabela progressiva é exclusiva para empregados.",
           },
         },
       ],
@@ -122,8 +122,8 @@ export default function TabelaInss2026Page() {
     <ContentPage jsonLd={jsonLd}>
       <ContentHero
         eyebrow="INSS 2026"
-        title="Tabela do INSS 2026: Faixas, Al\u00edquotas e Como Calcular"
-        description="O INSS \u00e9 o primeiro desconto do sal\u00e1rio bruto de todo trabalhador CLT. Em 2026, a contribui\u00e7\u00e3o segue o modelo progressivo com 4 faixas \u2014 de 7,5% a 14% \u2014 semelhante ao imposto de renda. Entenda como funciona, quanto desconta e como calcular."
+        title="Tabela do INSS 2026: Faixas, Alíquotas e Como Calcular"
+        description="O INSS é o primeiro desconto do salário bruto de todo trabalhador CLT. Em 2026, a contribuição segue o modelo progressivo com 4 faixas — de 7,5% a 14% — semelhante ao imposto de renda. Entenda como funciona, quanto desconta e como calcular."
       />
 
       <ContentBody>
@@ -133,7 +133,7 @@ export default function TabelaInss2026Page() {
         </h2>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          As al\u00edquotas do INSS em 2026 s\u00e3o aplicadas de forma progressiva sobre
+          As alíquotas do INSS em 2026 são aplicadas de forma progressiva sobre
           cada faixa salarial. Veja os valores atualizados:
         </p>
 
@@ -145,14 +145,14 @@ export default function TabelaInss2026Page() {
                   Faixa salarial
                 </th>
                 <th className="px-4 py-3 text-right font-medium text-muted-foreground">
-                  Al\u00edquota
+                  Alíquota
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
               <tr>
                 <td className="px-4 py-3 text-foreground">
-                  At\u00e9 R$ 1.621,00
+                  Até R$ 1.621,00
                 </td>
                 <td className="px-4 py-3 text-right text-foreground">7,5%</td>
               </tr>
@@ -179,25 +179,25 @@ export default function TabelaInss2026Page() {
         </div>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          <strong className="text-foreground">Desconto m\u00e1ximo:</strong>{" "}
-          R$ 988,09 por m\u00eas (para sal\u00e1rios iguais ou acima do teto de
+          <strong className="text-foreground">Desconto máximo:</strong>{" "}
+          R$ 988,09 por mês (para salários iguais ou acima do teto de
           R$ 8.475,55).
         </p>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          <strong className="text-foreground">Sal\u00e1rio m\u00ednimo 2026:</strong>{" "}
+          <strong className="text-foreground">Salário mínimo 2026:</strong>{" "}
           R$ 1.621,00.
         </p>
 
         {/* --- Como funciona o calculo progressivo --- */}
         <h2 className="mt-16 font-display text-2xl tracking-[-0.03em] text-foreground md:text-3xl">
-          Como funciona o c\u00e1lculo progressivo do INSS
+          Como funciona o cálculo progressivo do INSS
         </h2>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          O INSS n\u00e3o aplica uma al\u00edquota \u00fanica sobre todo o sal\u00e1rio. Cada faixa
-          tem sua pr\u00f3pria al\u00edquota, e o desconto \u00e9 calculado trecho a trecho. Veja
-          o exemplo para um sal\u00e1rio bruto de{" "}
+          O INSS não aplica uma alíquota única sobre todo o salário. Cada faixa
+          tem sua própria alíquota, e o desconto é calculado trecho a trecho. Veja
+          o exemplo para um salário bruto de{" "}
           <strong className="text-foreground">R$ 4.000,00</strong>:
         </p>
 
@@ -212,7 +212,7 @@ export default function TabelaInss2026Page() {
                   Trecho
                 </th>
                 <th className="px-4 py-3 text-right font-medium text-muted-foreground">
-                  Al\u00edquota
+                  Alíquota
                 </th>
                 <th className="px-4 py-3 text-right font-medium text-muted-foreground">
                   Desconto
@@ -221,7 +221,7 @@ export default function TabelaInss2026Page() {
             </thead>
             <tbody className="divide-y divide-border">
               <tr>
-                <td className="px-4 py-3 text-foreground">1\u00aa</td>
+                <td className="px-4 py-3 text-foreground">1ª</td>
                 <td className="px-4 py-3 text-right text-foreground">
                   R$ 1.621,00
                 </td>
@@ -231,7 +231,7 @@ export default function TabelaInss2026Page() {
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-foreground">2\u00aa</td>
+                <td className="px-4 py-3 text-foreground">2ª</td>
                 <td className="px-4 py-3 text-right text-foreground">
                   R$ 1.281,84
                 </td>
@@ -241,7 +241,7 @@ export default function TabelaInss2026Page() {
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-foreground">3\u00aa</td>
+                <td className="px-4 py-3 text-foreground">3ª</td>
                 <td className="px-4 py-3 text-right text-foreground">
                   R$ 1.097,16
                 </td>
@@ -263,8 +263,8 @@ export default function TabelaInss2026Page() {
         </div>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          <strong className="text-foreground">Al\u00edquota efetiva:</strong> 9,22%
-          (R$ 368,60 \u00f7 R$ 4.000,00). Bem abaixo dos 14% da faixa mais alta.
+          <strong className="text-foreground">Alíquota efetiva:</strong> 9,22%
+          (R$ 368,60 ÷ R$ 4.000,00). Bem abaixo dos 14% da faixa mais alta.
         </p>
 
         {/* --- Quanto desconta para cada faixa --- */}
@@ -273,8 +273,8 @@ export default function TabelaInss2026Page() {
         </h2>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          Confira o desconto do INSS e a al\u00edquota efetiva para diferentes
-          faixas de sal\u00e1rio bruto em 2026:
+          Confira o desconto do INSS e a alíquota efetiva para diferentes
+          faixas de salário bruto em 2026:
         </p>
 
         <div className="mt-6 overflow-x-auto rounded-xl border border-border">
@@ -282,13 +282,13 @@ export default function TabelaInss2026Page() {
             <thead>
               <tr className="bg-muted">
                 <th className="px-4 py-3 text-left font-medium text-muted-foreground">
-                  Sal\u00e1rio bruto
+                  Salário bruto
                 </th>
                 <th className="px-4 py-3 text-right font-medium text-muted-foreground">
                   Desconto INSS
                 </th>
                 <th className="px-4 py-3 text-right font-medium text-muted-foreground">
-                  Al\u00edquota efetiva
+                  Alíquota efetiva
                 </th>
               </tr>
             </thead>
@@ -346,17 +346,17 @@ export default function TabelaInss2026Page() {
         </h2>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          O teto do INSS em 2026 \u00e9 de{" "}
+          O teto do INSS em 2026 é de{" "}
           <strong className="text-foreground">R$ 8.475,55</strong>. Isso
-          significa que, independentemente de quanto o sal\u00e1rio bruto ultrapasse
-          esse valor, o desconto m\u00e1ximo de INSS ser\u00e1 de{" "}
-          <strong className="text-foreground">R$ 988,09</strong> por m\u00eas.
+          significa que, independentemente de quanto o salário bruto ultrapasse
+          esse valor, o desconto máximo de INSS será de{" "}
+          <strong className="text-foreground">R$ 988,09</strong> por mês.
         </p>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
           Quem ganha R$ 10.000, R$ 15.000 ou R$ 50.000 paga exatamente o mesmo
-          valor de INSS: R$ 988,09. A contribui\u00e7\u00e3o \u00e9 limitada ao teto para
-          todos os empregados CLT, dom\u00e9sticos e trabalhadores avulsos.
+          valor de INSS: R$ 988,09. A contribuição é limitada ao teto para
+          todos os empregados CLT, domésticos e trabalhadores avulsos.
         </p>
 
         {/* --- O que mudou no INSS em 2026 --- */}
@@ -365,9 +365,9 @@ export default function TabelaInss2026Page() {
         </h2>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          As al\u00edquotas do INSS continuam as mesmas desde 2020 (7,5%, 9%, 12% e
-          14%). O que muda a cada ano s\u00e3o os limites de cada faixa, reajustados
-          com base no sal\u00e1rio m\u00ednimo e no teto previdenci\u00e1rio. Compare:
+          As alíquotas do INSS continuam as mesmas desde 2020 (7,5%, 9%, 12% e
+          14%). O que muda a cada ano são os limites de cada faixa, reajustados
+          com base no salário mínimo e no teto previdenciário. Compare:
         </p>
 
         <div className="mt-6 overflow-x-auto rounded-xl border border-border">
@@ -385,7 +385,7 @@ export default function TabelaInss2026Page() {
             </thead>
             <tbody className="divide-y divide-border">
               <tr>
-                <td className="px-4 py-3 text-foreground">Sal\u00e1rio m\u00ednimo</td>
+                <td className="px-4 py-3 text-foreground">Salário mínimo</td>
                 <td className="px-4 py-3 text-right text-foreground">
                   R$ 1.518
                 </td>
@@ -403,7 +403,7 @@ export default function TabelaInss2026Page() {
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-foreground">Desconto m\u00e1ximo</td>
+                <td className="px-4 py-3 text-foreground">Desconto máximo</td>
                 <td className="px-4 py-3 text-right text-foreground">
                   R$ 951,63
                 </td>
@@ -435,22 +435,22 @@ export default function TabelaInss2026Page() {
 
         {/* --- Empregado domestico e trabalhador avulso --- */}
         <h2 className="mt-16 font-display text-2xl tracking-[-0.03em] text-foreground md:text-3xl">
-          INSS para empregado dom\u00e9stico e trabalhador avulso
+          INSS para empregado doméstico e trabalhador avulso
         </h2>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          Empregados dom\u00e9sticos e trabalhadores avulsos seguem a mesma tabela
+          Empregados domésticos e trabalhadores avulsos seguem a mesma tabela
           progressiva do INSS aplicada aos empregados CLT. As 4 faixas, as
-          al\u00edquotas e o teto s\u00e3o id\u00eanticos.
+          alíquotas e o teto são idênticos.
         </p>
 
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          A diferen\u00e7a est\u00e1 na responsabilidade do recolhimento: no caso do
-          empregado dom\u00e9stico, o empregador \u00e9 respons\u00e1vel por descontar e
-          recolher a contribui\u00e7\u00e3o atrav\u00e9s do{" "}
-          <strong className="text-foreground">eSocial</strong>. J\u00e1 o
-          trabalhador avulso tem a contribui\u00e7\u00e3o intermediada pelo sindicato ou
-          \u00f3rg\u00e3o gestor de m\u00e3o de obra (OGMO).
+          A diferença está na responsabilidade do recolhimento: no caso do
+          empregado doméstico, o empregador é responsável por descontar e
+          recolher a contribuição através do{" "}
+          <strong className="text-foreground">eSocial</strong>. Já o
+          trabalhador avulso tem a contribuição intermediada pelo sindicato ou
+          órgão gestor de mão de obra (OGMO).
         </p>
 
         {/* --- FAQ --- */}
@@ -461,32 +461,32 @@ export default function TabelaInss2026Page() {
         <div className="mt-6 flex flex-col divide-y divide-border">
           <details className="group py-5">
             <summary className="list-none text-lg font-medium leading-7 text-foreground">
-              O desconto do INSS \u00e9 de 14% do meu sal\u00e1rio?
+              O desconto do INSS é de 14% do meu salário?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              N\u00e3o. O INSS \u00e9 progressivo \u2014 14% s\u00f3 incide sobre a parcela do
-              sal\u00e1rio acima de R$ 4.354,28. A al\u00edquota efetiva total \u00e9 sempre menor
-              que 14%. Para quem ganha R$ 5.000, a al\u00edquota efetiva \u00e9 de 10,03%.
+              Não. O INSS é progressivo — 14% só incide sobre a parcela do
+              salário acima de R$ 4.354,28. A alíquota efetiva total é sempre menor
+              que 14%. Para quem ganha R$ 5.000, a alíquota efetiva é de 10,03%.
             </p>
           </details>
 
           <details className="group py-5">
             <summary className="list-none text-lg font-medium leading-7 text-foreground">
-              Quem ganha o sal\u00e1rio m\u00ednimo paga quanto de INSS?
+              Quem ganha o salário mínimo paga quanto de INSS?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              Com o m\u00ednimo de R$ 1.621 em 2026, o desconto \u00e9 de R$ 121,58 (7,5%
-              sobre o valor total, j\u00e1 que cabe na primeira faixa).
+              Com o mínimo de R$ 1.621 em 2026, o desconto é de R$ 121,58 (7,5%
+              sobre o valor total, já que cabe na primeira faixa).
             </p>
           </details>
 
           <details className="group py-5">
             <summary className="list-none text-lg font-medium leading-7 text-foreground">
-              O INSS desconta do 13\u00ba sal\u00e1rio e das f\u00e9rias?
+              O INSS desconta do 13º salário e das férias?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              Sim. Tanto o 13\u00ba quanto as f\u00e9rias t\u00eam desconto de INSS, calculado
-              separadamente do sal\u00e1rio mensal.
+              Sim. Tanto o 13º quanto as férias têm desconto de INSS, calculado
+              separadamente do salário mensal.
             </p>
           </details>
 
@@ -495,8 +495,8 @@ export default function TabelaInss2026Page() {
               Quem ganha acima do teto paga mais INSS?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              N\u00e3o. O desconto m\u00e1ximo \u00e9 de R$ 988,09, independente de quanto o
-              sal\u00e1rio ultrapasse R$ 8.475,55.
+              Não. O desconto máximo é de R$ 988,09, independente de quanto o
+              salário ultrapasse R$ 8.475,55.
             </p>
           </details>
 
@@ -505,8 +505,8 @@ export default function TabelaInss2026Page() {
               O INSS mudou com a Lei 15.270/2025?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              N\u00e3o. A Lei 15.270/2025 alterou apenas o imposto de renda (IRRF). As
-              al\u00edquotas e faixas do INSS continuam as mesmas, apenas com reajuste
+              Não. A Lei 15.270/2025 alterou apenas o imposto de renda (IRRF). As
+              alíquotas e faixas do INSS continuam as mesmas, apenas com reajuste
               nos valores limites.
             </p>
           </details>
@@ -516,31 +516,31 @@ export default function TabelaInss2026Page() {
               MEI paga INSS diferente?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              Sim. O MEI recolhe 5% do sal\u00e1rio m\u00ednimo (R$ 81,05 em 2026). A
-              tabela progressiva se aplica apenas a empregados CLT, dom\u00e9sticos e
+              Sim. O MEI recolhe 5% do salário mínimo (R$ 81,05 em 2026). A
+              tabela progressiva se aplica apenas a empregados CLT, domésticos e
               avulsos.
             </p>
           </details>
 
           <details className="group py-5">
             <summary className="list-none text-lg font-medium leading-7 text-foreground">
-              O desconto do INSS \u00e9 devolvido na declara\u00e7\u00e3o de IR?
+              O desconto do INSS é devolvido na declaração de IR?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              N\u00e3o \u00e9 devolvido, mas \u00e9 deduzido da base de c\u00e1lculo do imposto de
-              renda. Quanto mais INSS voc\u00ea paga, menor a base para calcular o
+              Não é devolvido, mas é deduzido da base de cálculo do imposto de
+              renda. Quanto mais INSS você paga, menor a base para calcular o
               IRRF.
             </p>
           </details>
 
           <details className="group py-5">
             <summary className="list-none text-lg font-medium leading-7 text-foreground">
-              Aut\u00f4nomos usam a mesma tabela?
+              Autônomos usam a mesma tabela?
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
               Contribuintes individuais podem escolher entre 11% (simplificado)
-              ou 20% (normal) sobre o sal\u00e1rio de contribui\u00e7\u00e3o. A tabela
-              progressiva \u00e9 exclusiva para empregados.
+              ou 20% (normal) sobre o salário de contribuição. A tabela
+              progressiva é exclusiva para empregados.
             </p>
           </details>
         </div>
@@ -556,7 +556,7 @@ export default function TabelaInss2026Page() {
               href: "/tabela-irrf-2026",
             },
             {
-              label: "Como calcular sal\u00e1rio l\u00edquido",
+              label: "Como calcular salário líquido",
               href: "/como-calcular-salario-liquido",
             },
           ]}
