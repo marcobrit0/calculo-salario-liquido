@@ -23,6 +23,9 @@ export function SourcesSection() {
               href={item.href}
               target="_blank"
               rel="noreferrer"
+              data-posthog-event="official_source_clicked"
+              data-posthog-label={item.label}
+              data-posthog-href={item.href}
               className="group flex flex-col gap-2 border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
             >
               <span className="text-xs uppercase tracking-[0.24em] text-zinc-500">

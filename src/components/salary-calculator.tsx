@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import {
   DEFAULT_CALCULATOR_STATE,
@@ -18,6 +18,10 @@ import {
   calculateSalaryBreakdown,
   type CalculationMode,
 } from "@/lib/salary";
+import {
+  captureEvent,
+  getCalculatorEventProperties,
+} from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 import { SalaryCalculatorForm } from "@/components/salary-calculator/form";
@@ -79,6 +83,7 @@ function SalaryCalculatorPanel({
   const [dependentsInput, setDependentsInput] = useState(initialInputState.dependentsInput);
   const [pensionInput, setPensionInput] = useState(initialInputState.pensionInput);
   const [shareStatus, setShareStatus] = useState(defaultShareStatus);
+  const hasTrackedFirstCalculation = useRef(false);
 
   const parsedSalary = parsePtBrNumber(salaryInput);
   const parsedDependents = parseNonNegativeInteger(dependentsInput);
@@ -90,6 +95,48 @@ function SalaryCalculatorPanel({
     dependents: parsedDependents,
     pension: parsedPension,
   });
+
+  const calculatorEventProperties = getCalculatorEventProperties({
+    mode,
+    amount: parsedSalary,
+    dependents: parsedDependents,
+    pension: parsedPension,
+    result,
+  });
+
+  useEffect(() => {
+    captureEvent("calculator_viewed", {
+      initial_mode: initialState.mode,
+      opened_from_shared_link:
+        initialState.amount !== DEFAULT_CALCULATOR_STATE.amount ||
+        initialState.dependents !== DEFAULT_CALCULATOR_STATE.dependents ||
+        initialState.pension !== DEFAULT_CALCULATOR_STATE.pension ||
+        initialState.mode !== DEFAULT_CALCULATOR_STATE.mode,
+    });
+  }, [initialState]);
+
+  useEffect(() => {
+    if (!hasTrackedFirstCalculation.current) {
+      hasTrackedFirstCalculation.current = true;
+      return;
+    }
+
+    if (parsedSalary <= 0) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      captureEvent("calculator_result_updated", calculatorEventProperties);
+    }, 900);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [
+    calculatorEventProperties,
+    mode,
+    parsedDependents,
+    parsedPension,
+    parsedSalary,
+  ]);
 
   useEffect(() => {
     const nextUrl = buildCalculatorHref(
@@ -119,6 +166,7 @@ function SalaryCalculatorPanel({
   }, [shareStatus]);
 
   function handleReset() {
+    captureEvent("calculator_reset", calculatorEventProperties);
     setMode(DEFAULT_CALCULATOR_STATE.mode);
     setSalaryInput(formatPtBrCurrencyInput(DEFAULT_CALCULATOR_STATE.amount));
     setDependentsInput(formatPtBrIntegerInput(DEFAULT_CALCULATOR_STATE.dependents));
@@ -136,8 +184,10 @@ function SalaryCalculatorPanel({
     try {
       await window.navigator.clipboard.writeText(url);
       setShareStatus("Link copiado para compartilhar esta simulação");
+      captureEvent("calculator_share_link_copied", calculatorEventProperties);
     } catch {
       setShareStatus("Não foi possível copiar o link agora");
+      captureEvent("calculator_share_link_failed", calculatorEventProperties);
     }
   }
 

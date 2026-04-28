@@ -15,6 +15,7 @@ import {
   parseNonNegativeInteger,
   parsePtBrNumber,
 } from "@/lib/pt-br";
+import { captureEvent, getAmountBucket } from "@/lib/analytics";
 import type { CalculationMode } from "@/lib/salary";
 
 import type {
@@ -51,7 +52,12 @@ export function SalaryCalculatorForm({
             value={[mode]}
             onValueChange={(value) => {
               if (value[0]) {
-                setMode(value[0] as CalculationMode);
+                const nextMode = value[0] as CalculationMode;
+                captureEvent("calculator_mode_changed", {
+                  previous_mode: mode,
+                  mode: nextMode,
+                });
+                setMode(nextMode);
               }
             }}
             variant="outline"
@@ -82,9 +88,15 @@ export function SalaryCalculatorForm({
               placeholder="5.000,00"
               value={salaryInput}
               onChange={(event) => setSalaryInput(event.target.value)}
-              onBlur={() =>
-                setSalaryInput((current) => formatPtBrCurrencyInput(parsePtBrNumber(current)))
-              }
+              onBlur={() => {
+                const amount = parsePtBrNumber(salaryInput);
+                captureEvent("calculator_input_committed", {
+                  field: "salary",
+                  mode,
+                  amount_bucket: getAmountBucket(amount),
+                });
+                setSalaryInput(formatPtBrCurrencyInput(amount));
+              }}
               className="h-11 text-base"
             />
             <FieldDescription>
@@ -102,11 +114,16 @@ export function SalaryCalculatorForm({
               placeholder="0"
               value={dependentsInput}
               onChange={(event) => setDependentsInput(event.target.value)}
-              onBlur={() =>
-                setDependentsInput((current) =>
-                  formatPtBrIntegerInput(parseNonNegativeInteger(current))
-                )
-              }
+              onBlur={() => {
+                const dependents = parseNonNegativeInteger(dependentsInput);
+                captureEvent("calculator_input_committed", {
+                  field: "dependents",
+                  mode,
+                  dependents_count: dependents,
+                  has_dependents: dependents > 0,
+                });
+                setDependentsInput(formatPtBrIntegerInput(dependents));
+              }}
               className="h-11 text-base"
             />
             <FieldDescription>
@@ -125,9 +142,16 @@ export function SalaryCalculatorForm({
             placeholder="0,00"
             value={pensionInput}
             onChange={(event) => setPensionInput(event.target.value)}
-            onBlur={() =>
-              setPensionInput((current) => formatPtBrCurrencyInput(parsePtBrNumber(current)))
-            }
+            onBlur={() => {
+              const pension = parsePtBrNumber(pensionInput);
+              captureEvent("calculator_input_committed", {
+                field: "judicial_pension",
+                mode,
+                pension_bucket: getAmountBucket(pension),
+                has_judicial_pension: pension > 0,
+              });
+              setPensionInput(formatPtBrCurrencyInput(pension));
+            }}
             className="h-11 text-base"
           />
           <FieldDescription>

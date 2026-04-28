@@ -17,6 +17,9 @@ export function HeroSection() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    data-posthog-event="navigation_link_clicked"
+                    data-posthog-label={item.label}
+                    data-posthog-href={item.href}
                     className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm text-zinc-300 transition-colors hover:bg-white/8 hover:text-white"
                   >
                     {item.label}
@@ -25,6 +28,9 @@ export function HeroSection() {
               </nav>
               <a
                 href="#calculadora"
+                data-posthog-event="hero_cta_clicked"
+                data-posthog-label="Calcular salário"
+                data-posthog-href="#calculadora"
                 className="inline-flex h-10 items-center justify-center rounded-full bg-white px-5 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5"
               >
                 Calcular salário
@@ -49,12 +55,18 @@ export function HeroSection() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#calculadora"
+                data-posthog-event="hero_cta_clicked"
+                data-posthog-label="Calcular meu salário líquido"
+                data-posthog-href="#calculadora"
                 className="inline-flex h-11 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5"
               >
                 Calcular meu salário líquido
               </a>
               <a
                 href="#metodologia"
+                data-posthog-event="hero_cta_clicked"
+                data-posthog-label="Como funciona o cálculo"
+                data-posthog-href="#metodologia"
                 className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/8"
               >
                 Como funciona o cálculo
