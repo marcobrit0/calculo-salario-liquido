@@ -1,6 +1,25 @@
-const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://calcularsalarioliquido.com.br";
+const CANONICAL_HOST = "www.calcularsalarioliquido.com.br";
+const APEX_HOST = "calcularsalarioliquido.com.br";
+
+function normalizeBaseUrl(url: string) {
+  const withoutTrailingSlash = url.replace(/\/$/, "");
+
+  try {
+    const parsedUrl = new URL(withoutTrailingSlash);
+
+    if (parsedUrl.hostname === APEX_HOST) {
+      parsedUrl.hostname = CANONICAL_HOST;
+    }
+
+    return parsedUrl.toString().replace(/\/$/, "");
+  } catch {
+    return withoutTrailingSlash;
+  }
+}
+
+const baseUrl = normalizeBaseUrl(
+  process.env.NEXT_PUBLIC_SITE_URL ?? `https://${CANONICAL_HOST}`,
+);
 
 const googleSiteVerification =
   process.env.GOOGLE_SITE_VERIFICATION ??

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { createPageMetadata } from "@/lib/seo";
+import { createAbsoluteUrl, createPageMetadata } from "@/lib/seo";
 import {
   BlogArticleHeader,
   ContentPage,
@@ -19,20 +19,23 @@ export const metadata: Metadata = createPageMetadata({
   openGraphType: "article",
 });
 
+const pageUrl = createAbsoluteUrl("/blog/diferenca-salario-bruto-liquido");
+const homeUrl = createAbsoluteUrl("/");
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: "Diferença Entre Salário Bruto e Líquido: Entenda de Uma Vez",
   description:
     "Salário bruto vs líquido: entenda a diferença, quais descontos existem e veja uma tabela comparativa.",
-  url: "https://calcularsalarioliquido.com.br/blog/diferenca-salario-bruto-liquido",
+  url: pageUrl,
   inLanguage: "pt-BR",
   datePublished: "2026-03-28",
   dateModified: "2026-03-28",
   author: {
     "@type": "Organization",
     name: "Salário Líquido",
-    url: "https://calcularsalarioliquido.com.br",
+    url: homeUrl,
   },
   publisher: {
     "@type": "Organization",
@@ -40,8 +43,7 @@ const jsonLd = {
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id":
-      "https://calcularsalarioliquido.com.br/blog/diferenca-salario-bruto-liquido",
+    "@id": pageUrl,
   },
 };
 

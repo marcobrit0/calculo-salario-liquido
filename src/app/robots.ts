@@ -3,6 +3,8 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
+  const host = new URL(siteConfig.url).host;
+
   return {
     rules: [
       {
@@ -11,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
+    host,
   };
 }

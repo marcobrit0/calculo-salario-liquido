@@ -8,7 +8,7 @@ import {
   ContentPage,
   ContentRelatedLinks,
 } from "@/components/content-page";
-import { createPageMetadata } from "@/lib/seo";
+import { createAbsoluteUrl, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title:
@@ -19,6 +19,8 @@ export const metadata: Metadata = createPageMetadata({
   openGraphType: "article",
 });
 
+const pageUrl = createAbsoluteUrl("/como-calcular-salario-liquido");
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -27,7 +29,7 @@ const jsonLd = {
       name: "Como Calcular o Salário Líquido CLT em 2026",
       description:
         "Passo a passo para calcular o salário líquido CLT com INSS, IRRF e Lei 15.270/2025.",
-      url: "https://calcularsalarioliquido.com.br/como-calcular-salario-liquido",
+      url: pageUrl,
       inLanguage: "pt-BR",
       step: [
         {
