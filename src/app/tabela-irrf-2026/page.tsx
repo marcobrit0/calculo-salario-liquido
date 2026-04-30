@@ -8,7 +8,7 @@ import {
   ContentPage,
   ContentRelatedLinks,
 } from "@/components/content-page";
-import { createPageMetadata } from "@/lib/seo";
+import { createAbsoluteUrl, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Tabela IRRF 2026: Alíquotas, Faixas e Isenção Até R$ 5.000",
@@ -17,6 +17,9 @@ export const metadata: Metadata = createPageMetadata({
   pathname: "/tabela-irrf-2026",
   openGraphType: "article",
 });
+
+const pageUrl = createAbsoluteUrl("/tabela-irrf-2026");
+const homeUrl = createAbsoluteUrl("/");
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -27,14 +30,14 @@ const jsonLd = {
         "Tabela IRRF 2026: Alíquotas, Faixas e Nova Isenção Até R$ 5.000",
       description:
         "Tabela do IRRF 2026 com alíquotas, parcela a deduzir e a nova isenção da Lei 15.270/2025.",
-      url: "https://calcularsalarioliquido.com.br/tabela-irrf-2026",
+      url: pageUrl,
       inLanguage: "pt-BR",
       datePublished: "2026-01-15",
       dateModified: "2026-04-04",
       author: {
         "@type": "Organization",
         name: "Salário Líquido",
-        url: "https://calcularsalarioliquido.com.br",
+        url: homeUrl,
       },
       publisher: {
         "@type": "Organization",

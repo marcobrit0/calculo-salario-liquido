@@ -7,7 +7,7 @@ import {
   ContentCTA,
   ContentRelatedLinks,
 } from "@/components/content-page";
-import { createPageMetadata } from "@/lib/seo";
+import { createAbsoluteUrl, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Tabela INSS 2026: Faixas, Alíquotas e Como Calcular o Desconto",
@@ -16,6 +16,9 @@ export const metadata: Metadata = createPageMetadata({
   pathname: "/tabela-inss-2026",
   openGraphType: "article",
 });
+
+const pageUrl = createAbsoluteUrl("/tabela-inss-2026");
+const homeUrl = createAbsoluteUrl("/");
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -26,14 +29,14 @@ const jsonLd = {
         "Tabela do INSS 2026: Faixas, Alíquotas e Como Calcular",
       description:
         "Tabela do INSS 2026 atualizada com as 4 faixas progressivas, teto e exemplos de cálculo.",
-      url: "https://calcularsalarioliquido.com.br/tabela-inss-2026",
+      url: pageUrl,
       inLanguage: "pt-BR",
       datePublished: "2026-01-15",
       dateModified: "2026-04-04",
       author: {
         "@type": "Organization",
         name: "Salário Líquido",
-        url: "https://calcularsalarioliquido.com.br",
+        url: homeUrl,
       },
       publisher: {
         "@type": "Organization",
@@ -41,7 +44,7 @@ const jsonLd = {
       },
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://calcularsalarioliquido.com.br/tabela-inss-2026",
+        "@id": pageUrl,
       },
     },
     {

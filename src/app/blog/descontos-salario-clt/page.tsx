@@ -9,7 +9,7 @@ import {
   ContentPage,
   ContentRelatedLinks,
 } from "@/components/content-page";
-import { createPageMetadata } from "@/lib/seo";
+import { createAbsoluteUrl, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title:
@@ -20,6 +20,9 @@ export const metadata: Metadata = createPageMetadata({
   openGraphType: "article",
 });
 
+const pageUrl = createAbsoluteUrl("/blog/descontos-salario-clt");
+const homeUrl = createAbsoluteUrl("/");
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -27,14 +30,14 @@ const jsonLd = {
     "Quais São os Descontos no Salário CLT? Lista Completa 2026",
   description:
     "Todos os descontos no holerite CLT: INSS, IRRF, vale-transporte, pensão, plano de saúde, consignado e mais.",
-  url: "https://calcularsalarioliquido.com.br/blog/descontos-salario-clt",
+  url: pageUrl,
   inLanguage: "pt-BR",
   datePublished: "2026-03-21",
   dateModified: "2026-03-21",
   author: {
     "@type": "Organization",
     name: "Salário Líquido",
-    url: "https://calcularsalarioliquido.com.br",
+    url: homeUrl,
   },
   publisher: {
     "@type": "Organization",
@@ -42,7 +45,7 @@ const jsonLd = {
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://calcularsalarioliquido.com.br/blog/descontos-salario-clt",
+    "@id": pageUrl,
   },
 };
 

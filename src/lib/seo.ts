@@ -21,12 +21,16 @@ export type StaticPageEntry = {
   lastModified: Date;
 };
 
-function normalizePathname(pathname: string) {
+export function normalizePathname(pathname: string) {
   if (pathname === "/") {
     return "/";
   }
 
   return pathname.replace(/\/+$/, "");
+}
+
+export function createAbsoluteUrl(pathname = "/") {
+  return new URL(normalizePathname(pathname), siteConfig.url).toString();
 }
 
 function isRouteGroup(segment: string) {
@@ -124,7 +128,7 @@ export function createPageMetadata({
   robots,
 }: PageMetadataInput): Metadata {
   const canonical = normalizePathname(pathname);
-  const absoluteUrl = new URL(canonical, siteConfig.url).toString();
+  const absoluteUrl = createAbsoluteUrl(canonical);
 
   return {
     title,

@@ -24,7 +24,7 @@ npm run dev
 
 Variáveis úteis em produção:
 
-- `NEXT_PUBLIC_SITE_URL`: URL canônica do site
+- `NEXT_PUBLIC_SITE_URL`: URL canônica do site (`https://www.calcularsalarioliquido.com.br` em produção)
 - `GOOGLE_SITE_VERIFICATION`: token de verificação do Google Search Console
 - `BING_SITE_VERIFICATION`: token de verificação do Bing Webmaster Tools
 
