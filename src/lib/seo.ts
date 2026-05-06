@@ -134,7 +134,7 @@ export function createPageMetadata({
     title,
     description,
     alternates: {
-      canonical,
+      canonical: absoluteUrl,
     },
     openGraph: {
       type: openGraphType,
