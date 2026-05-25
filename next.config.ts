@@ -12,7 +12,10 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value: "calcularsalarioliquido.com.br",
+            // Anchored so it matches ONLY the bare apex, never the www host.
+            // Prevents a www→www redirect loop if the apex is assigned to this
+            // project instead of redirected at Vercel's edge.
+            value: "^calcularsalarioliquido\\.com\\.br$",
           },
         ],
         destination: "https://www.calcularsalarioliquido.com.br/:path*",
