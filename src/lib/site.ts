@@ -132,4 +132,14 @@ export const faqItems = [
     answer:
       "Não necessariamente. O holerite pode incluir adicionais, como noturno, periculosidade e insalubridade, além de descontos de vale-transporte, plano de saúde, empréstimo consignado e outras rubricas que não fazem parte desta simulação. Use o resultado como estimativa dos descontos obrigatórios.",
   },
+  {
+    question: "Como fica o salário CLT em 2026?",
+    answer:
+      "Em 2026, o salário mínimo CLT é de R$ 1.621 e, nessa faixa, há desconto apenas de INSS (7,5%), sem IRRF. Quem ganha até R$ 5.000 fica isento de IRRF pela Lei 15.270/2025 — um salário de R$ 5.000 brutos resulta em R$ 4.498,49 líquidos. Acima disso, o IRRF começa a reduzir o líquido. Informe seu valor na calculadora para o número exato.",
+  },
+  {
+    question: "Qual é o desconto do salário bruto para o líquido?",
+    answer:
+      "Os descontos obrigatórios que separam o bruto do líquido são dois: o INSS, progressivo de 7,5% a 14%, e o IRRF, que só incide acima da faixa de isenção. Para um salário de R$ 5.000 em 2026, o desconto é de R$ 501,51 de INSS e R$ 0 de IRRF. Vale-transporte, plano de saúde, consignado e contribuição sindical, quando existem, são descontos adicionais que variam por empresa e não entram nesta simulação.",
+  },
 ] as const;

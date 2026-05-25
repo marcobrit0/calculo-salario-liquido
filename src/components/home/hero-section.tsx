@@ -46,9 +46,10 @@ export function HeroSection() {
                 Descubra quanto do seu salário sobra depois dos descontos
               </h1>
               <p className="mt-5 max-w-3xl text-sm leading-7 text-zinc-300 md:text-base md:leading-8">
-                Simule INSS, IRRF e a nova isenção da Lei 15.270/2025 em segundos.
-                Informe o bruto, veja o líquido. Ou informe o líquido desejado e descubra
-                quanto precisa ganhar.
+                Faça o cálculo do salário líquido CLT de 2026 em segundos: simule
+                INSS, IRRF e a nova isenção da Lei 15.270/2025. Informe o bruto e
+                veja o líquido — ou informe o líquido desejado e descubra quanto
+                precisa ganhar.
               </p>
             </div>
 
