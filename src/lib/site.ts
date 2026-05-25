@@ -135,7 +135,7 @@ export const faqItems = [
   {
     question: "Como fica o salário CLT em 2026?",
     answer:
-      "Em 2026, o salário mínimo CLT é de R$ 1.621. Quem recebe o mínimo tem desconto apenas de INSS (R$ 121,58) e fica com cerca de R$ 1.499,42 líquidos. Quem ganha até R$ 5.000 fica isento de IRRF pela Lei 15.270/2025 — um salário de R$ 5.000 brutos resulta em R$ 4.498,49 líquidos. A partir dessa faixa, o IRRF passa a reduzir o líquido. Informe seu valor na calculadora para o número exato.",
+      "Em 2026, o salário mínimo CLT é de R$ 1.621 e, nessa faixa, há desconto apenas de INSS (7,5%), sem IRRF. Quem ganha até R$ 5.000 fica isento de IRRF pela Lei 15.270/2025 — um salário de R$ 5.000 brutos resulta em R$ 4.498,49 líquidos. Acima disso, o IRRF começa a reduzir o líquido. Informe seu valor na calculadora para o número exato.",
   },
   {
     question: "Qual é o desconto do salário bruto para o líquido?",
