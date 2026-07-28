@@ -343,18 +343,18 @@ A good change in this repo usually does at least one of these:
 If in doubt, optimize for clarity, credibility, and consistency over novelty.
 
 <!-- gbrain-guidance:v1 -->
-## GBrain — semantic code & knowledge search
+## Repository search
 
-This repo is indexed in **gbrain**, Marco's personal knowledge brain. It auto-syncs
-this repo's code and "dreams" over recent session transcripts nightly, so it is the
-living memory for cross-repo context — consult it before re-deriving things.
+Use `semble search` for semantic code, documentation and configuration search in
+this repository. Use exact-string search only when every literal occurrence is
+needed.
 
-Prefer `gbrain` over plain grep when the question is semantic or you don't yet know
-the exact identifier:
+GBrain can provide cross-repository decisions and session history when its
+database service and this repository's index are available:
 
-- Semantic / intent ("where is X handled?"): `gbrain query "<question>"` or `gbrain search "<terms>"`
-- Symbol definitions / references: `gbrain code-def <symbol>` · `gbrain code-refs <symbol>`
-- Call graph: `gbrain code-callers <symbol>` · `gbrain code-callees <symbol>`
 - Past decisions / plans / retros: `gbrain search "<terms>"`
+- Cross-repository context: `gbrain query "<question>"`
 
-Use grep for known exact strings, regex, multiline patterns, and file globs.
+If GBrain is unavailable, refuses its database connection or has no indexed
+result, continue with `semble search` and the repository itself; do not block the
+task on GBrain.
