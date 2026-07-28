@@ -350,12 +350,5 @@ Use `semble search "<query>" .` for semantic code search in this repository. Add
 documentation, configuration or everything. Use exact-string search only when
 every literal occurrence is needed.
 
-GBrain can provide cross-repository decisions and session history when its
-database service and this repository's index are available:
-
-- Past decisions / plans / retros: `gbrain search "<terms>"`
-- Cross-repository context: `gbrain query "<question>"`
-
-If GBrain is unavailable, refuses its database connection or has no indexed
-result, continue with `semble search` and the repository itself; do not block the
-task on GBrain.
+Do not retrieve cross-repository or session-history context unless the user
+explicitly authorises that wider scope.
