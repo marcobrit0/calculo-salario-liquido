@@ -345,9 +345,10 @@ If in doubt, optimize for clarity, credibility, and consistency over novelty.
 <!-- gbrain-guidance:v1 -->
 ## Repository search
 
-Use `semble search` for semantic code, documentation and configuration search in
-this repository. Use exact-string search only when every literal occurrence is
-needed.
+Use `semble search "<query>" .` for semantic code search in this repository. Add
+`--content docs`, `--content config` or `--content all` when the query must cover
+documentation, configuration or everything. Use exact-string search only when
+every literal occurrence is needed.
 
 GBrain can provide cross-repository decisions and session history when its
 database service and this repository's index are available:
