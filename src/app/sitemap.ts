@@ -1,7 +1,19 @@
 import type { MetadataRoute } from "next";
 
-import { collectStaticPageEntries } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+
+const routes = [
+  "/",
+  "/blog",
+  "/blog/descontos-salario-clt",
+  "/blog/diferenca-salario-bruto-liquido",
+  "/blog/isencao-imposto-renda-2026",
+  "/como-calcular-salario-liquido",
+  "/privacidade",
+  "/tabela-inss-2026",
+  "/tabela-irrf-2026",
+  "/termos",
+] as const;
 
 function getPriority(route: string) {
   if (route === "/") {
@@ -31,13 +43,10 @@ function getChangeFrequency(route: string): MetadataRoute.Sitemap[number]["chang
   return "monthly";
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const pages = await collectStaticPageEntries();
-
-  return pages.map((page) => ({
-    url: new URL(page.route, siteConfig.url).toString(),
-    lastModified: page.lastModified,
-    changeFrequency: getChangeFrequency(page.route),
-    priority: getPriority(page.route),
+export default function sitemap(): MetadataRoute.Sitemap {
+  return routes.map((route) => ({
+    url: new URL(route, siteConfig.url).toString(),
+    changeFrequency: getChangeFrequency(route),
+    priority: getPriority(route),
   }));
 }
