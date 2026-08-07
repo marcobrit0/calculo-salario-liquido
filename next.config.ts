@@ -28,6 +28,17 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/",
+        has: [
+          {
+            type: "host",
+            value: "^calcularsalarioliquido\\.com\\.br$",
+          },
+        ],
+        destination: "https://www.calcularsalarioliquido.com.br/",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [
           {
