@@ -341,3 +341,13 @@ A good change in this repo usually does at least one of these:
 - keeps domain logic explicit and conservative
 
 If in doubt, optimize for clarity, credibility, and consistency over novelty.
+
+## Repository search
+
+Use `semble search "<query>" .` for semantic code search in this repository. Add
+`--content docs`, `--content config` or `--content all` when the query must cover
+documentation, configuration or everything. Use exact-string search only when
+every literal occurrence is needed.
+
+Do not retrieve cross-repository or session-history context unless the user
+explicitly authorises that wider scope.
