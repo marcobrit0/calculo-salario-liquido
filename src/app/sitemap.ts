@@ -44,8 +44,11 @@ function getChangeFrequency(route: string): MetadataRoute.Sitemap[number]["chang
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   return routes.map((route) => ({
     url: new URL(route, siteConfig.url).toString(),
+    lastModified,
     changeFrequency: getChangeFrequency(route),
     priority: getPriority(route),
   }));
