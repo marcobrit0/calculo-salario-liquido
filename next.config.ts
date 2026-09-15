@@ -1,6 +1,10 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 
+const PREVIEW_HOST = String.raw`(?<preview>.+-)?calcular-salario-liquido\.marconmbrito\.workers\.dev`;
+const APEX_HOST = String.raw`^calcularsalarioliquido\.com\.br$`;
+const WWW_HOST = String.raw`^www\.calcularsalarioliquido\.com\.br$`;
+
 const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
@@ -12,8 +16,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value:
-              "(?<preview>.+-)?calcular-salario-liquido\\.marconmbrito\\.workers\\.dev",
+            value: PREVIEW_HOST,
           },
         ],
         headers: [
@@ -30,7 +33,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value: "^www\\.calcularsalarioliquido\\.com\\.br$",
+            value: WWW_HOST,
           },
         ],
         headers: [
@@ -49,7 +52,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value: "^calcularsalarioliquido\\.com\\.br$",
+            value: APEX_HOST,
           },
         ],
         destination: "https://www.calcularsalarioliquido.com.br/",
@@ -61,9 +64,7 @@ const nextConfig: NextConfig = {
           {
             type: "host",
             // Anchored so it matches ONLY the bare apex, never the www host.
-            // Prevents a www→www redirect loop if the apex is assigned to this
-            // project instead of redirected at Vercel's edge.
-            value: "^calcularsalarioliquido\\.com\\.br$",
+            value: APEX_HOST,
           },
         ],
         destination: "https://www.calcularsalarioliquido.com.br/:path*",
