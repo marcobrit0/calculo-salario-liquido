@@ -33,16 +33,19 @@ export const siteConfig = {
   name: "Salário Líquido",
   url: baseUrl,
   locale: "pt-BR",
-  title: "Cálculo Salário Líquido | Calculadora CLT 2026",
+  title: "Calculadora de Salário Líquido CLT 2026 — Grátis Online",
   description:
-    "Cálculo salário líquido CLT em PT-BR com INSS 2026, IRRF 2026 e redução da Lei 15.270/2025 para simular bruto para líquido e líquido para bruto.",
+    "Calcule salário líquido CLT em segundos com INSS 2026, IRRF 2026 e Lei 15.270/2025. Simule bruto para líquido ou líquido para bruto — grátis.",
   shortDescription:
     "Calculadora de salário líquido CLT com regras brasileiras de 2026.",
   defaultOgImage: "/opengraph-image",
   keywords: [
-    "calculo salario liquido",
+    "calculadora salario liquido",
     "calculadora de salario liquido",
+    "calculo salario liquido",
     "calcular salario liquido",
+    "quais sao os descontos no salario clt",
+    "diferenca salario bruto e liquido",
     "desconto salario",
     "calculadora clt 2026",
     "salario bruto para liquido",
