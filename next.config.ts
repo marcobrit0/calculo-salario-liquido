@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
           {
             type: "host",
             value:
-              "(?<preview>.+-)?calcular-salario-liquido\\.marconmbrito\\.workers.dev",
+              "(?<preview>.+-)?calcular-salario-liquido\\.marconmbrito\\.workers\\.dev",
           },
         ],
         headers: [
