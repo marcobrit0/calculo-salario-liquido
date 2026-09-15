@@ -4,9 +4,9 @@ import { HomePage } from "@/components/home/home-page";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Cálculo Salário Líquido CLT 2026 | Salário Líquido",
+  title: "Calculadora de Salário Líquido CLT 2026 — Grátis Online",
   description:
-    "Cálculo salário líquido CLT com INSS 2026, IRRF 2026 e redução da Lei 15.270/2025. Use a calculadora de salário líquido para simular bruto para líquido ou líquido para bruto.",
+    "Calcule salário líquido CLT em segundos com INSS 2026, IRRF 2026 e Lei 15.270/2025. Simule bruto para líquido ou líquido para bruto — grátis e atualizado.",
   pathname: "/",
 });
 
