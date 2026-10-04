@@ -8,9 +8,9 @@ const PAGE_SEO_OVERRIDES: Record<
   { title: string; description: string }
 > = {
   "/blog/descontos-salario-clt": {
-    title: "Quais São os Descontos no Salário CLT 2026? Lista Completa",
+    title: "Descontos no Salário CLT 2026: INSS, IRRF e todos os itens",
     description:
-      "Quais são os descontos no salário CLT 2026? Veja INSS, IRRF, vale-transporte, pensão, plano de saúde, consignado e o que não desconta do holerite.",
+      "Quais são os descontos no salário CLT em 2026? INSS, IRRF, vale-transporte, faltas, pensão e consignado, com valores e exemplos. Confira seu holerite.",
   },
   "/blog/diferenca-salario-bruto-liquido": {
     title:

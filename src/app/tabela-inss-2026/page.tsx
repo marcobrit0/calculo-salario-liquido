@@ -10,9 +10,9 @@ import {
 import { createAbsoluteUrl, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Tabela INSS 2026: Faixas, Alíquotas e Como Calcular o Desconto",
+  title: "Tabela INSS 2026 Completa: desconto máximo de R$ 988,09",
   description:
-    "Tabela do INSS 2026 atualizada com as 4 faixas progressivas (7,5% a 14%), teto de R$ 8.475,55 e exemplos de cálculo. Veja quanto desconta do seu salário.",
+    "Tabela INSS 2026 com as 4 faixas (7,5% a 14%), teto de R$ 8.475,55 e desconto máximo de R$ 988,09. Veja quanto sai do seu salário e calcule grátis.",
   pathname: "/tabela-inss-2026",
   openGraphType: "article",
 });
