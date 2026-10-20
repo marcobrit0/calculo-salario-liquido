@@ -10,7 +10,7 @@ import {
 import { createAbsoluteUrl, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Tabela INSS 2026 Completa: desconto máximo de R$ 988,09",
+  title: "Tabela INSS 2026: Faixas, Alíquotas e Como Calcular o Desconto",
   description:
     "Tabela INSS 2026 com as 4 faixas (7,5% a 14%), teto de R$ 8.475,55 e desconto máximo de R$ 988,09. Veja quanto sai do seu salário e calcule grátis.",
   pathname: "/tabela-inss-2026",
