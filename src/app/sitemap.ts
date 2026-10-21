@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site";
 const routes = [
   "/",
   "/blog",
+  "/blog/como-calcular-decimo-terceiro",
   "/blog/descontos-salario-clt",
   "/blog/diferenca-salario-bruto-liquido",
   "/blog/isencao-imposto-renda-2026",

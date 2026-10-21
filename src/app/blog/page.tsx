@@ -13,6 +13,14 @@ export const metadata: Metadata = createPageMetadata({
 
 const posts = [
   {
+    href: "/blog/como-calcular-decimo-terceiro",
+    title:
+      "Como calcular o décimo terceiro salário: 1ª e 2ª parcela, INSS e IRRF em 2026",
+    description:
+      "Quem tem direito, prazos da 1ª e 2ª parcela, cálculo proporcional e um exemplo completo com salário de R$ 3.000, já com INSS e IRRF de 2026.",
+    date: "21 de outubro de 2026",
+  },
+  {
     href: "/blog/isencao-imposto-renda-2026",
     title: "Isenção de Imposto de Renda 2026: Quem Ganha Até R$ 5.000 Não Paga IR",
     description:
