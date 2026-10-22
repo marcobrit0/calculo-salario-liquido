@@ -338,9 +338,11 @@ export default function IsencaoImpostoRenda2026() {
             </summary>
             <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
               O 13º salário possui tributação exclusiva na fonte, com
-              cálculo próprio separado do salário mensal. A aplicação da
-              redução ao 13º depende da regulamentação específica da
-              Receita Federal para o período.
+              cálculo próprio separado do salário mensal. A redução da
+              Lei 15.270/2025 também se aplica ao 13º (Lei 9.250/1995,
+              art. 3º-A, §3º), assim como o desconto simplificado mensal
+              (IN RFB 1.500/2014, art. 13, §8º) — veja o cálculo completo
+              no guia do décimo terceiro.
             </p>
           </details>
 
@@ -413,6 +415,10 @@ export default function IsencaoImpostoRenda2026() {
             {
               href: "/como-calcular-salario-liquido",
               label: "Como calcular salário líquido",
+            },
+            {
+              href: "/blog/como-calcular-decimo-terceiro",
+              label: "Como calcular o décimo terceiro",
             },
           ]}
         />
