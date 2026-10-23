@@ -6,6 +6,7 @@ const routes = [
   "/",
   "/blog",
   "/blog/como-calcular-decimo-terceiro",
+  "/blog/como-calcular-ferias",
   "/blog/descontos-salario-clt",
   "/blog/diferenca-salario-bruto-liquido",
   "/blog/isencao-imposto-renda-2026",
