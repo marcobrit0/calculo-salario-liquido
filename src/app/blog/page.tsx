@@ -13,6 +13,14 @@ export const metadata: Metadata = createPageMetadata({
 
 const posts = [
   {
+    href: "/blog/como-calcular-ferias",
+    title:
+      "Como calcular férias: 1/3 constitucional, abono pecuniário e descontos em 2026",
+    description:
+      "Quem tem direito, quantos dias, 1/3 constitucional, abono pecuniário e um exemplo completo com salário de R$ 3.000, já com INSS e IRRF de 2026.",
+    date: "23 de outubro de 2026",
+  },
+  {
     href: "/blog/como-calcular-decimo-terceiro",
     title:
       "Como calcular o décimo terceiro salário: 1ª e 2ª parcela, INSS e IRRF em 2026",
