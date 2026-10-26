@@ -159,8 +159,7 @@ export default function ComoCalcularRescisao() {
           trabalho. O período do aviso, mesmo indenizado, integra o tempo
           de serviço do empregado (CLT, art. 487, § 1º), e é por isso que
           ele pode empurrar a contagem de meses do 13º e das férias
-          proporcionais: um aviso que projeta o fim do contrato para além
-          de 15 dias dentro de um mês soma mais um mês a essas contagens;
+          proporcionais: um aviso que projeta o fim do contrato para 15 dias ou mais dentro de um mês soma mais um mês a essas contagens;
           abaixo de 15 dias, não soma.
         </p>
 
@@ -304,8 +303,7 @@ export default function ComoCalcularRescisao() {
           dias trabalhados (1 a 10 de junho) mais 20 dias projetados (11
           a 30 de junho), total de 30 dias, acima da fração de 15 dias —
           por isso junho conta como mês cheio. Julho reúne apenas 10 dias
-          projetados (1 a 10 de julho), abaixo de 15 dias para o 13º e
-          dentro da fração de 14 dias para as férias — por isso não soma
+          projetados (1 a 10 de julho), abaixo de 15 dias para o 13º e abaixo da fração superior a 14 dias para as férias — por isso não soma
           um sétimo mês. As contagens ficam em 6/12: de janeiro a junho,
           contando da admissão (1º de janeiro a 1º de julho são 6
           períodos mensais completos).
@@ -371,7 +369,7 @@ export default function ComoCalcularRescisao() {
           tudo: férias indenizadas e aviso indenizado não sofrem
           desconto, e tributá-los é pagar a mais. O terceiro é ignorar a
           projeção do aviso: 30 dias de aviso podem somar um mês ao 13º
-          e às férias se ultrapassarem 15 dias no mês seguinte, e
+          e às férias se somarem 15 dias ou mais no mês seguinte, e
           esquecê-lo é pagar a menos. O quarto é confundir os 40% com
           50%: a contribuição social de 10% acabou em 2020. O quinto é
           assinar o termo sem conferir cada parcela: a quitação só vale
@@ -416,7 +414,7 @@ export default function ComoCalcularRescisao() {
               Sim: o período do aviso, trabalhado ou não, integra o
               tempo de serviço (CLT, art. 487, § 1º), e por isso pode
               somar um mês ao 13º e às férias proporcionais quando a
-              projeção ultrapassa 15 dias no mês seguinte. No exemplo
+              projeção soma 15 dias ou mais no mês seguinte. No exemplo
               deste guia, junho conta porque reúne 10 dias trabalhados
               mais 20 projetados; julho não soma mês porque reúne apenas
               10 dias projetados.
@@ -484,3 +482,4 @@ export default function ComoCalcularRescisao() {
     </ContentPage>
   );
 }
+
