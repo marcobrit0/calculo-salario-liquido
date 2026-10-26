@@ -7,6 +7,7 @@ const routes = [
   "/blog",
   "/blog/como-calcular-decimo-terceiro",
   "/blog/como-calcular-ferias",
+  "/blog/como-calcular-rescisao",
   "/blog/descontos-salario-clt",
   "/blog/diferenca-salario-bruto-liquido",
   "/blog/isencao-imposto-renda-2026",
@@ -55,3 +56,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: getPriority(route),
   }));
 }
+

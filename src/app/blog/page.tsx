@@ -13,6 +13,14 @@ export const metadata: Metadata = createPageMetadata({
 
 const posts = [
   {
+    href: "/blog/como-calcular-rescisao",
+    title:
+      "Como calcular rescisão: verbas, multa do FGTS e prazos em 2026",
+    description:
+      "Quais verbas entram em cada tipo de demissão, multa de 40% do FGTS, descontos de INSS e IRRF e um exemplo completo com salário de R$ 3.000 em 2026.",
+    date: "26 de outubro de 2026",
+  },
+  {
     href: "/blog/como-calcular-ferias",
     title:
       "Como calcular férias: 1/3 constitucional, abono pecuniário e descontos em 2026",
@@ -85,3 +93,4 @@ export default function BlogPage() {
     </ContentPage>
   );
 }
+
