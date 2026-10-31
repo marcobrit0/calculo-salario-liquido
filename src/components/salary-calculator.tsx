@@ -139,7 +139,12 @@ function SalaryCalculatorPanel({
   ]);
 
   useEffect(() => {
-    const nextUrl = buildCalculatorHref(
+    // buildCalculatorHref is root-relative ("/..."), so prefix the current
+    // pathname: on /embed the iframe URL must stay /embed, otherwise the
+    // embed silently rewrites itself to the homepage path.
+    const basePath =
+      window.location.pathname === "/" ? "" : window.location.pathname;
+    const nextUrl = `${basePath}${buildCalculatorHref(
       {
         mode,
         amount: parsedSalary,
@@ -147,7 +152,7 @@ function SalaryCalculatorPanel({
         pension: parsedPension,
       },
       { includeHash: false }
-    );
+    )}`;
 
     const nextHash = window.location.hash === "#calculadora" ? "#calculadora" : "";
     window.history.replaceState({}, "", `${nextUrl}${nextHash}`);
@@ -174,7 +179,9 @@ function SalaryCalculatorPanel({
   }
 
   async function handleCopyLink() {
-    const url = `${window.location.origin}${buildCalculatorHref({
+    const basePath =
+      window.location.pathname === "/" ? "" : window.location.pathname;
+    const url = `${window.location.origin}${basePath}${buildCalculatorHref({
       mode,
       amount: parsedSalary,
       dependents: parsedDependents,

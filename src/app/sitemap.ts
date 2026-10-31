@@ -12,6 +12,7 @@ const routes = [
   "/blog/diferenca-salario-bruto-liquido",
   "/blog/isencao-imposto-renda-2026",
   "/como-calcular-salario-liquido",
+  "/incorporar",
   "/privacidade",
   "/tabela-inss-2026",
   "/tabela-irrf-2026",
@@ -23,7 +24,7 @@ function getPriority(route: string) {
     return 1;
   }
 
-  if (route === "/privacidade" || route === "/termos") {
+  if (route === "/privacidade" || route === "/termos" || route === "/incorporar") {
     return 0.4;
   }
 
@@ -39,7 +40,7 @@ function getChangeFrequency(route: string): MetadataRoute.Sitemap[number]["chang
     return "weekly";
   }
 
-  if (route === "/privacidade" || route === "/termos") {
+  if (route === "/privacidade" || route === "/termos" || route === "/incorporar") {
     return "yearly";
   }
 
