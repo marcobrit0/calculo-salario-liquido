@@ -498,6 +498,10 @@ export default function DescontosSalarioCltPage() {
               label: "Como calcular salário líquido",
               href: "/como-calcular-salario-liquido",
             },
+            {
+              label: "Como calcular rescisão",
+              href: "/blog/como-calcular-rescisao",
+            },
           ]}
         />
       </ContentBody>
