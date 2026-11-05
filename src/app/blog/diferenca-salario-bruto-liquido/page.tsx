@@ -389,6 +389,10 @@ export default function DiferencaSalarioBrutoLiquidoPage() {
         <ContentRelatedLinks
           links={[
             {
+              href: "/",
+              label: "Calculadora de salário líquido",
+            },
+            {
               href: "/como-calcular-salario-liquido",
               label: "Como calcular salário líquido",
             },
