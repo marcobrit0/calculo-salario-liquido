@@ -476,6 +476,10 @@ export default function ComoCalcularRescisao() {
               href: "/blog/como-calcular-ferias",
               label: "Como calcular férias",
             },
+            {
+              href: "/blog/descontos-salario-clt",
+              label: "Descontos no salário CLT",
+            },
           ]}
         />
       </ContentBody>
