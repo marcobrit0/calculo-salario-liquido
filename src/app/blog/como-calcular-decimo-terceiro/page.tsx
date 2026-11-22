@@ -48,9 +48,60 @@ const jsonLd = {
   },
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quem foi admitido no meio do ano recebe décimo terceiro inteiro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Recebe o proporcional: 1/12 do salário por mês trabalhado, contando como mês completo o mês com 15 dias ou mais de trabalho. Quem trabalhou 6 meses com salário de R$ 3.000, por exemplo, tem 13º bruto de R$ 1.500,00."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A 1ª parcela do décimo terceiro tem desconto de INSS ou imposto de renda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A 1ª parcela, de 50%, é paga sem desconto de INSS e de IRRF. Os dois descontos são calculados sobre o valor total do 13º e cobrados na 2ª parcela."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que a 2ª parcela do meu décimo terceiro veio bem menor que a 1ª?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque INSS — e IRRF, quando devido — incidem sobre o total do 13º, mas são descontados integralmente da segunda metade. No exemplo de R$ 3.000 deste guia, só o INSS já retira R$ 248,60 da 2ª parcela."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Décimo terceiro tem FGTS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O empregador recolhe FGTS de 8% sobre o 13º, nas duas parcelas. O FGTS é um depósito do empregador e não é descontado do valor que o trabalhador recebe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O décimo terceiro entra na declaração anual do imposto de renda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O 13º é tributado de forma exclusiva na fonte e deve ser informado na declaração anual, pelo valor líquido, na ficha de Rendimentos Sujeitos à Tributação Exclusiva/Definitiva. Ele não se soma ao salário mensal para um novo cálculo e o imposto retido sobre ele não pode ser compensado no ajuste anual."
+      }
+    }
+  ]
+};
+
 export default function ComoCalcularDecimoTerceiro() {
   return (
     <ContentPage jsonLd={jsonLd}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <ContentHero
         eyebrow="Décimo terceiro salário"
         title="Como calcular o décimo terceiro salário: 1ª e 2ª parcela, INSS e IRRF em 2026"
