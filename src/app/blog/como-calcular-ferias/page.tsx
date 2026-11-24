@@ -48,9 +48,68 @@ const jsonLd = {
   },
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso vender parte das férias? Como fica o valor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim: você pode converter 1/3 do período em abono pecuniário, desde que peça até 15 dias antes do fim do período aquisitivo. Em 30 dias, dá para gozar 20 e vender 10: no exemplo de R$ 3.000, são R$ 2.000,00 de gozo + R$ 1.000,00 de 1/3 + R$ 1.000,00 de abono, totalizando R$ 4.000,00 brutos — o mesmo que 30 dias gozados, com 10 dias a mais de trabalho."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Férias têm desconto de INSS e imposto de renda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O INSS incide sobre as férias + 1/3 e o IRRF é calculado no mês do pagamento, em separado do salário. No exemplo de R$ 3.000 deste guia, o INSS é R$ 368,60 e o IRRF é R$ 0,00 em 2026, pela redução da Lei 15.270/2025 para rendimentos de até R$ 5.000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Em quantas vezes posso dividir as férias?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em até 3 períodos, desde que você concorde: um deles com no mínimo 14 dias corridos e os demais com no mínimo 5 dias corridos cada um. As férias não podem começar nos 2 dias que antecedem feriado ou dia de repouso semanal remunerado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A empresa atrasou minhas férias. E agora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se as férias forem concedidas depois dos 12 meses do período concessivo, o empregador paga em dobro a respectiva remuneração (CLT, art. 137)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Férias têm FGTS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O empregador recolhe FGTS de 8% sobre as férias + 1/3. O FGTS é um depósito do empregador e não é descontado do valor que o trabalhador recebe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "As férias entram na declaração anual do imposto de renda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na declaração anual, as férias são tributadas em conjunto com os demais rendimentos (IN RFB nº 1.500/2014, art. 29, § 4º) — diferente do 13º, que tem tributação exclusiva na fonte."
+      }
+    }
+  ]
+};
+
 export default function ComoCalcularFerias() {
   return (
     <ContentPage jsonLd={jsonLd}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <ContentHero
         eyebrow="Férias CLT"
         title="Como calcular férias: 1/3 constitucional, abono pecuniário e descontos em 2026"
