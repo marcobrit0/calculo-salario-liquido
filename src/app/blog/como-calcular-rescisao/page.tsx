@@ -48,9 +48,60 @@ const jsonLd = {
   },
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quem pede demissão tem direito a quê?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Saldo de salário, 13º proporcional e férias vencidas e proporcionais com o terço. Não tem aviso do empregador, multa do FGTS, saque do FGTS nem seguro-desemprego; e se não cumprir o aviso, o empregador pode descontar o período (CLT, art. 487, § 2º)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A multa é 40% do salário ou do saldo do FGTS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Do saldo do FGTS: 40% de todos os depósitos do contrato, com juros e correção (Lei 8.036/1990, art. 18, § 1º). O salário só serve para estimar os depósitos mensais de 8%, nunca como base direta da multa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O aviso indenizado conta como tempo de serviço?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim: o período do aviso, trabalhado ou não, integra o tempo de serviço (CLT, art. 487, § 1º), e por isso pode somar um mês ao 13º e às férias proporcionais quando a projeção soma 15 dias ou mais no mês seguinte. No exemplo deste guia, junho conta porque reúne 10 dias trabalhados mais 20 projetados; julho não soma mês porque reúne apenas 10 dias projetados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo tenho para receber?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O pagamento deve sair em até 10 dias corridos a partir do término do contrato (CLT, art. 477, § 6º). No aviso indenizado, o término é a data final da projeção do aviso: no exemplo deste guia, 10 de julho, de modo que o prazo vai até 20 de julho. Atrasou, a multa é de um salário, salvo se o próprio trabalhador deu causa à mora (art. 477, § 8º)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Fui dispensado sem justa causa depois de 6 meses: recebo seguro-desemprego?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não na primeira solicitação: são exigidos pelo menos 12 meses de salários nos últimos 18 meses (Lei 7.998/1990, art. 3º, na redação da Lei 13.134/2015). Os 6 meses são o piso da terceira solicitação em diante, não um atalho para a primeira: 6 meses não tornam uma primeira solicitação elegível, e o histórico de pedidos e os demais requisitos também contam."
+      }
+    }
+  ]
+};
+
 export default function ComoCalcularRescisao() {
   return (
     <ContentPage jsonLd={jsonLd}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <ContentHero
         eyebrow="Rescisão CLT"
         title="Como calcular rescisão: verbas, multa do FGTS e prazos em 2026"
